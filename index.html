@@ -81,7 +81,7 @@
     <h1>Real TikTok Shop wins. <em>The systems behind them.</em></h1>
     <p>Operator playbooks from brands scaling on TikTok Shop. Real numbers, anonymized where required. This is the system, not the spin.</p>
   </div></header>
-  <main class="wrap"><div class="filterbar"><div class="filters"><label class="flabel" for="rs-fselect">Industry</label><div class="fselect-wrap"><select class="fselect" id="rs-fselect"><option value="all">All industries</option><option value="food-and-beverage">Food and beverage</option><option value="health-and-wellness">Health and wellness</option><option value="health-and-wellness-supplements">Health and wellness supplements</option><option value="oral-care-breath-mints">Oral care / breath mints</option><option value="pet-supplies">Pet supplies</option></select><span class="fselect-caret" aria-hidden="true">&#9662;</span></div><span class="fcount" id="rs-fcount">6 case studies</span></div></div>
+  <main class="wrap"><div class="filterbar"><div class="filters"><span class="flabel" id="rs-dd-label">Industry</span><div class="dd" data-dd="industry"><button type="button" class="dd-trigger" id="rs-dd-trig" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="rs-dd-label rs-dd-trig"><span class="dd-trigger-val">All industries</span><span class="dd-caret" aria-hidden="true">&#9662;</span></button><div class="dd-menu" id="rs-dd-menu" role="listbox" aria-labelledby="rs-dd-label" hidden><button type="button" class="ddmenu-item is-active" data-value="all">All industries</button><button type="button" class="ddmenu-item" data-value="food-and-beverage">Food and beverage</button><button type="button" class="ddmenu-item" data-value="health-and-wellness">Health and wellness</button><button type="button" class="ddmenu-item" data-value="health-and-wellness-supplements">Health and wellness supplements</button><button type="button" class="ddmenu-item" data-value="oral-care-breath-mints">Oral care / breath mints</button><button type="button" class="ddmenu-item" data-value="pet-supplies">Pet supplies</button></div></div><span class="fcount" id="rs-fcount">6 case studies</span></div></div>
     <div class="grid">
 
       <a class="cs-card" data-industry="oral-care-breath-mints" href="peak-demand-gmv-scale-oral-care.html">
@@ -164,21 +164,44 @@
   <div class="empty-state" id="rs-empty">No case studies match that industry yet &mdash; try another chip.</div></main>
 <script>
 (function(){
-  var sel = document.getElementById("rs-fselect");
-  var cards = document.querySelectorAll(".grid .cs-card");
-  var count = document.getElementById("rs-fcount");
-  var empty = document.getElementById("rs-empty");
+  var dd     = document.querySelector('[data-dd="industry"]');
+  var trig   = document.getElementById("rs-dd-trig");
+  var menu   = document.getElementById("rs-dd-menu");
+  var val    = trig.querySelector(".dd-trigger-val");
+  var items  = menu.querySelectorAll(".ddmenu-item");
+  var cards  = document.querySelectorAll(".grid .cs-card");
+  var count  = document.getElementById("rs-fcount");
+  var empty  = document.getElementById("rs-empty");
+  var state  = "all";
+
+  function open(){ dd.classList.add("is-open"); menu.hidden = false; trig.setAttribute("aria-expanded","true"); }
+  function close(){ dd.classList.remove("is-open"); menu.hidden = true; trig.setAttribute("aria-expanded","false"); }
+  function toggle(e){ e.stopPropagation(); if(menu.hidden) open(); else close(); }
+
   function apply(){
-    var v = sel.value;
     var shown = 0;
     cards.forEach(function(c){
-      var ok = (v === "all" || c.getAttribute("data-industry") === v);
+      var ok = (state === "all" || c.getAttribute("data-industry") === state);
       if(ok){ c.hidden = false; shown++; } else { c.hidden = true; }
     });
     if(count){ count.textContent = shown + (shown === 1 ? " case study" : " case studies"); }
     if(empty){ empty.classList.toggle("is-on", shown === 0); }
   }
-  sel.addEventListener("change", apply);
+
+  trig.addEventListener("click", toggle);
+  trig.addEventListener("keydown", function(e){ if(e.key === "Escape") close(); });
+  document.addEventListener("click", function(e){ if(!dd.contains(e.target)) close(); });
+
+  items.forEach(function(b){
+    b.addEventListener("click", function(){
+      state = b.getAttribute("data-value");
+      items.forEach(function(x){ x.classList.toggle("is-active", x === b); });
+      val.textContent = b.textContent;
+      apply();
+      close();
+    });
+  });
+
   apply();
 })();
 </script>
