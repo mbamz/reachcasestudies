@@ -138,7 +138,7 @@ a{color:inherit;text-decoration:none;}
       <a href="https://reachsocial.co/blog/">Blog</a>
       <a href="https://reachsocial.co/#contact">Contact</a>
     </nav>
-    <a class="rs-site-cta" href="https://reachsocial.co/#contact">Book a strategy call</a>
+    <a class="rs-site-cta" href="https://meetings.hubspot.com/reach-social/intro-call?utm_source=case-study&utm_medium=nav&utm_campaign=case-studies&utm_content=index">Book a strategy call</a>
   </div>
 </header>
 <header class="hero"><div class="hero-inner">
@@ -261,31 +261,50 @@ a{color:inherit;text-decoration:none;}
 </main>
 <footer class="rs-site-footer" role="contentinfo">
   <div class="rs-site-footer-inner">
-    <div class="rs-site-footer-top">
-      <a class="rs-site-footer-logo" href="https://reachsocial.co/">
-        <img src="https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png" alt="Reach Social">
-      </a>
-      <nav class="rs-site-footer-nav" aria-label="Footer">
-        <a href="https://reachsocial.co/">Home</a>
-        <a href="https://reachsocial.co/#about">About</a>
-        <a href="https://reachsocial.co/#services">Services</a>
-        <a href="https://reachsocial.co/#partners">Partnership</a>
-        <a href="https://reachsocial.co/#categories">Categories</a>
-        <a href="https://reachsocial.co/casestudies/">Case Studies</a>
-        <a href="https://reachsocial.co/blog/">Blog</a>
-        <a href="https://reachsocial.co/#contact">Contact</a>
-      </nav>
+    <div class="rs-footer-reach">
+      <p>Feel free to reach out if you want to collaborate with us, or simply chat.</p>
+      <form class="rs-nl-mini" data-endpoint="https://amzadvisers.app.n8n.cloud/webhook/reachsocial-newsletter" novalidate>
+        <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
+        <input type="hidden" name="form_name" value="reach-casestudy">
+        <button type="submit">Send</button>
+      </form>
     </div>
-    <div class="rs-site-footer-mid">
-      <a class="rs-site-footer-email" href="mailto:hello@reachsocial.co">hello@reachsocial.co</a>
-      <div class="rs-site-footer-socials" aria-label="Reach Social on social media">
-        <a href="https://www.facebook.com/reachsocial">Facebook</a>
-        <a href="https://twitter.com/reachsocial">Twitter</a>
-        <a href="https://www.youtube.com/@reachsocial">YouTube</a>
+    <div class="rs-footer-cols">
+      <div class="rs-footer-brand">
+        <a href="https://reachsocial.co/"><img src="https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png" alt="Reach Social"></a>
+        <p>We build a predictable engine across affiliates, shop operations, and paid ads&mdash;so your brand sells where your customers are already scrolling.</p>
+      </div>
+      <div class="rs-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://reachsocial.co/">Home</a></li>
+          <li><a href="https://reachsocial.co/#about">About</a></li>
+          <li><a href="https://reachsocial.co/#services">Services</a></li>
+          <li><a href="https://reachsocial.co/#partners">Partnership</a></li>
+          <li><a href="https://reachsocial.co/#categories">Categories</a></li>
+          <li><a href="https://reachsocial.co/casestudies/">Case Studies</a></li>
+          <li><a href="https://reachsocial.co/blog/">Blog</a></li>
+          <li><a href="https://reachsocial.co/partners/">Referral Partner Program</a></li>
+          <li><a href="https://reachsocial.co/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="rs-footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@reachsocial.co">hello@reachsocial.co</a></li>
+        </ul>
+      </div>
+      <div class="rs-footer-col">
+        <h4>Follow Us On</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/reachsocial">Facebook</a></li>
+          <li><a href="https://twitter.com/reachsocial">Twitter</a></li>
+          <li><a href="https://www.youtube.com/@reachsocial">Youtube</a></li>
+        </ul>
       </div>
     </div>
     <div class="rs-site-footer-bottom">
-      <small>Copyright &copy; 2026 ReachSocial.</small>
+      <small>Copyright &copy; 2026 ReachSocial. All right reserved.</small>
     </div>
   </div>
 </footer>
@@ -334,5 +353,47 @@ a{color:inherit;text-decoration:none;}
 })();
 </script>
 
+<style>
+/* WP footer replica overrides (appended; wins cascade) */
+.rs-site-footer{background:#050505;border-top:1px solid #1F1F22;padding:0 26px 22px;color:#B8B8BC;}
+.rs-site-footer-inner{max-width:1200px;margin:0 auto;}
+.rs-footer-reach{display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding:30px 0;border-bottom:1px solid #1F1F22;}
+.rs-footer-reach p{font-family:"DM Sans","Poppins",Arial,sans-serif;font-weight:700;font-size:17px;color:#FFFFFF;margin:0;flex:1;min-width:260px;}
+.rs-nl-mini{display:flex;gap:10px;flex:1;min-width:280px;max-width:440px;}
+.rs-nl-mini input[type=email]{flex:1;background:#0E0E0E;border:1px solid #1F1F22;border-radius:999px;padding:11px 18px;color:#FFFFFF;font-family:"Poppins",Arial,sans-serif;font-size:13.5px;outline:none;}
+.rs-nl-mini input[type=email]:focus{border-color:rgba(197,248,95,.5);}
+.rs-nl-mini button{background:#C5F85F;color:#0A0A0A;border:0;border-radius:999px;padding:11px 24px;font-family:"DM Sans","Poppins",Arial,sans-serif;font-weight:800;font-size:12px;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;}
+.rs-nl-mini button:hover{background:#9FC84E;}
+.rs-footer-cols{display:flex;gap:44px;flex-wrap:wrap;padding:34px 0 26px;border-bottom:1px solid #1F1F22;}
+.rs-footer-brand{flex:1.4;min-width:240px;}
+.rs-footer-brand img{height:24px;width:auto;display:block;margin-bottom:14px;}
+.rs-footer-brand p{font-size:13px;line-height:1.7;color:#B8B8BC;margin:0;max-width:320px;}
+.rs-footer-col{flex:1;min-width:150px;}
+.rs-footer-col h4{font-family:"DM Sans","Poppins",Arial,sans-serif;font-weight:700;font-size:13px;color:#FFFFFF;margin:0 0 14px;letter-spacing:.02em;}
+.rs-footer-col ul{list-style:none;margin:0;padding:0;}
+.rs-footer-col li{margin-bottom:9px;}
+.rs-footer-col a{font-family:"Poppins",Arial,sans-serif;font-size:12.5px;color:#B8B8BC;text-decoration:none;transition:color .15s ease;}
+.rs-footer-col a:hover{color:#C5F85F;}
+.rs-site-footer-bottom{padding-top:16px;text-align:center;color:#8A8F98;font-family:"Poppins",Arial,sans-serif;font-size:12px;}
+.rs-cs-topbar .crumb{font-family:"DM Sans","Poppins",Arial,sans-serif;font-size:12px;color:#8A8F98;text-decoration:none;}
+.rs-cs-topbar .crumb:hover{color:#C5F85F;}
+@media (max-width:700px){.rs-footer-cols{flex-direction:column;gap:26px;}}
+</style>
+<script>
+document.querySelectorAll("form[data-endpoint]").forEach(function (f) {
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = f.querySelector("input[type=email]").value.trim();
+    if (!email || email.indexOf("@") < 0) return;
+    var endpoint = f.getAttribute("data-endpoint");
+    if (endpoint) {
+      fetch(endpoint, { method: "POST", body: new FormData(f), mode: "no-cors" });
+      f.innerHTML = "<span style='color:#C5F85F;font-weight:700;font-family:DM Sans,Poppins,Arial,sans-serif;font-size:13.5px'>You&rsquo;re in. Watch your inbox.</span>";
+    } else {
+      window.location.href = "mailto:hello@reachsocial.co?subject=" + encodeURIComponent("Subscribe me to Reach Social updates") + "&body=" + encodeURIComponent("Please add " + email + " to the list.");
+    }
+  });
+});
+</script>
 </body>
 </html>
