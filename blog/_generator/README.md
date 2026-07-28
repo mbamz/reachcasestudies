@@ -15,7 +15,16 @@ sitemap, llms.txt, JSON-LD) is produced from the same source of truth.
   `{{CTA_PRE}}`, `{{SLUG}}`, `{{BODY_HTML}}`. The OG image is derived as
   `/blog/assets/{{SLUG}}-og.png`; every canonical/og/JSON-LD URL and both CTA
   `utm_campaign` values are derived from `{{SLUG}}`.
-- `render_post.py` — renders one post + rebuilds all derived surfaces.
+- `render_post.py` — renders one post + rebuilds all derived surfaces, and (by
+  default) regenerates the post's cover card.
+- `render_card.py` + `card_template.html` — the blog's **own** cover-card
+  renderer. Produces `blog/assets/<slug>-card.png`: the large centered lime Reach
+  mark on a dark panel with a subtle lime radial glow, the uppercase lime
+  category eyebrow, and a small "Reach Social" wordline. NO headline, NO stat,
+  and everything is vertically centered so it never crops weirdly in the 160px
+  grid. Same technique as gen_images (self-contained template → headless Chrome
+  screenshot at 2x → Pillow downscale to 1200x675). The blog owns its card art;
+  the shared `gen_images.py` is used only for the OG share image now.
 - `posts/<slug>.json` — per-post metadata (fields documented in the script
   header).
 - `posts/<slug>.body.html` — the inner HTML of `<article class="rs-post-body">`
@@ -37,35 +46,39 @@ sitemap, llms.txt, JSON-LD) is produced from the same source of truth.
    - `<slug>.body.html` — the article body, Reach Social company voice. Real
      numbers only, client names anonymized to category descriptors.
 
-2. Generate the two images with the shared brand-kit generator
-   (`~/.amzadvisers/image-gen/gen_images.py`), writing into `blog/assets/`:
+2. Generate the OG share image with the shared brand-kit generator
+   (`~/.amzadvisers/image-gen/gen_images.py`), writing into `blog/assets/`.
+   The cover **card** is produced by `render_post.py` (step 3) — do NOT make a
+   card with gen_images, and never make a `-hero.png` (the in-body hero is gone
+   by design):
 
    ```sh
    G=~/.amzadvisers/image-gen/gen_images.py
-   # clean, TEXT-FREE thumbnail — logo + category eyebrow only (NO headline, NO stat)
-   python "$G" --brand reach --slug <slug> --out blog/assets --types card \
-       --eyebrow "<Category>"
    # OG share card — headline baked in is fine here
    python "$G" --brand reach --slug <slug> --out blog/assets --types og \
        --eyebrow "Reach Social · <Category>" --headline "<short headline>" \
        --impact "<one real stat>"
    ```
 
-   Never generate a `-hero.png`. The in-body hero image is gone by design.
-
-3. Render:
+3. Render (writes the page, regenerates the cover card, rebuilds every surface):
 
    ```sh
    python blog/_generator/render_post.py <slug>
    ```
 
-   This writes `blog/<slug>/index.html`, promotes the post to the index
-   `featured` slot, demotes the previously featured post to the top of the
-   grid, and rebuilds `blog/sitemap.xml`, `blog/llms.txt`, and the index
-   JSON-LD. It is idempotent: re-running a slug updates it in place; new slugs
-   go to the front (newest → featured).
+   This writes `blog/<slug>/index.html`, regenerates `blog/assets/<slug>-card.png`
+   via `render_card.py`, promotes the post to the index `featured` slot, demotes
+   the previously featured post to the top of the grid, and rebuilds
+   `blog/sitemap.xml`, `blog/llms.txt`, and the index JSON-LD. It is idempotent:
+   re-running a slug updates it in place; new slugs go to the front (newest →
+   featured). Pass `--no-card` to skip card regeneration (e.g. no Chrome). The
+   card can also be made on its own:
 
-4. Re-render everything (e.g. after a template change):
+   ```sh
+   python blog/_generator/render_card.py <slug> "<Category>"
+   ```
+
+4. Re-render everything (e.g. after a template or card-design change):
 
    ```sh
    python blog/_generator/render_post.py --all

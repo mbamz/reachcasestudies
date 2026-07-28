@@ -107,6 +107,18 @@ def write_page(meta: dict) -> Path:
     return out
 
 
+def build_card(meta: dict):
+    """Render the branded cover card (blog/assets/<slug>-card.png). Best-effort:
+    needs headless Chrome. In a Chrome-less env the page HTML still renders and
+    only the card is skipped, with a warning."""
+    try:
+        sys.path.insert(0, str(GEN))
+        from render_card import render_card
+        render_card(meta["slug"], meta.get("category") or meta["eyebrow"])
+    except Exception as e:  # noqa: BLE001
+        print(f"  [warn] card not regenerated for {meta['slug']}: {e}")
+
+
 # --------------------------------------------------------------------------- #
 # Registry (source of truth for all derived surfaces, newest first)
 # --------------------------------------------------------------------------- #
@@ -224,9 +236,11 @@ def rebuild_llms(reg: list):
 
 
 # --------------------------------------------------------------------------- #
-def render(slug: str):
+def render(slug: str, cards: bool = True):
     meta = load_meta(slug)
     page = write_page(meta)
+    if cards:
+        build_card(meta)
     reg = upsert(load_registry(), meta)
     save_registry(reg)
     rebuild_index(reg)
@@ -236,17 +250,21 @@ def render(slug: str):
 
 
 def main():
-    if len(sys.argv) != 2:
+    args = [a for a in sys.argv[1:] if a != "--no-card"]
+    cards = "--no-card" not in sys.argv
+    if len(args) != 1:
         raise SystemExit(__doc__)
-    if sys.argv[1] == "--all":
+    if args[0] == "--all":
         for p in load_registry():
             meta = load_meta(p["slug"])
             write_page(meta)
+            if cards:
+                build_card(meta)
         reg = load_registry()
         rebuild_index(reg); rebuild_sitemap(reg); rebuild_llms(reg)
         print(f"re-rendered {len(reg)} posts")
     else:
-        render(sys.argv[1])
+        render(args[0], cards=cards)
 
 
 if __name__ == "__main__":
