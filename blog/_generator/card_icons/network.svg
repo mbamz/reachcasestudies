@@ -1,0 +1,13 @@
+<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" role="img" aria-label="creator network">
+  <line x1="50" y1="50" x2="22" y2="24"/>
+  <line x1="50" y1="50" x2="78" y2="24"/>
+  <line x1="50" y1="50" x2="18" y2="70"/>
+  <line x1="50" y1="50" x2="82" y2="70"/>
+  <line x1="50" y1="50" x2="50" y2="88"/>
+  <circle cx="50" cy="50" r="11" fill="currentColor" stroke="none"/>
+  <circle cx="22" cy="24" r="7" fill="currentColor" stroke="none"/>
+  <circle cx="78" cy="24" r="7" fill="currentColor" stroke="none"/>
+  <circle cx="18" cy="70" r="7" fill="currentColor" stroke="none"/>
+  <circle cx="82" cy="70" r="7" fill="currentColor" stroke="none"/>
+  <circle cx="50" cy="88" r="7" fill="currentColor" stroke="none"/>
+</svg>

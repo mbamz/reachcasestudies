@@ -1,0 +1,5 @@
+<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="growth">
+  <path d="M16 14 V86 H88" opacity="0.32"/>
+  <polyline points="24,72 44,52 58,62 82,30"/>
+  <polyline points="64,30 82,30 82,48"/>
+</svg>

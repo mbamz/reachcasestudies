@@ -1,0 +1,6 @@
+<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="storefront">
+  <path d="M22 46 h56 v40 h-56 z"/>
+  <path d="M18 46 l8-22 h48 l8 22 z"/>
+  <path d="M44 86 v-22 h12 v22"/>
+  <line x1="30" y1="34" x2="70" y2="34" opacity="0.34"/>
+</svg>

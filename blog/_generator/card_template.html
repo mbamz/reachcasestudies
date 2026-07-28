@@ -6,29 +6,29 @@
   body{
     position:relative;overflow:hidden;
     background:
-      radial-gradient(115% 85% at 50% 40%, rgba(197,248,95,0.18) 0%, rgba(197,248,95,0.05) 32%, rgba(197,248,95,0) 62%),
-      radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px) 0 0 / 26px 26px,
-      linear-gradient(180deg, #101012 0%, #060606 55%, #030303 100%);
-    color:#C5F85F;
+      radial-gradient({{GLOW_SIZE}}% 88% at {{GLOW_X}}% {{GLOW_Y}}%, {{GLOW_STRONG}} 0%, {{GLOW_SOFT}} 34%, rgba(0,0,0,0) 64%),
+      radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px) 0 0 / {{GRID}}px {{GRID}}px,
+      linear-gradient({{ANGLE}}deg, #101012 0%, #060606 55%, #030303 100%);
+    color:{{ACCENT}};
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     -webkit-font-smoothing:antialiased;
     font-family:var(--font-head,"DM Sans","Poppins",Arial,sans-serif);
   }
   /* inset frame for depth — kept well inside the 160px-tall grid crop */
-  .frame{position:absolute;inset:24px;border:1px solid rgba(197,248,95,0.16);border-radius:22px;pointer-events:none;}
+  .frame{position:absolute;inset:24px;border:1px solid {{FRAME}};border-radius:22px;pointer-events:none;}
   /* everything critical stays vertically centered so the grid thumbnail never crops it */
   .stack{display:flex;flex-direction:column;align-items:center;justify-content:center;}
-  .mark{width:236px;color:#C5F85F;filter:drop-shadow(0 0 44px rgba(197,248,95,0.42));line-height:0;}
-  .mark svg{display:block;width:100%;height:auto;}
-  .eyebrow{margin-top:42px;font-weight:800;text-transform:uppercase;
-    letter-spacing:.34em;font-size:30px;color:#C5F85F;text-align:center;padding-left:.34em;}
+  .icon{width:222px;height:222px;color:{{ACCENT}};filter:drop-shadow(0 0 42px {{GLOW_DROP}});line-height:0;}
+  .icon svg{display:block;width:100%;height:100%;}
+  .eyebrow{margin-top:40px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.34em;font-size:30px;color:{{ACCENT}};text-align:center;padding-left:.34em;}
   .brand{margin-top:15px;font-weight:600;font-size:15px;letter-spacing:.30em;
     text-transform:uppercase;color:rgba(255,255,255,0.42);text-align:center;padding-left:.30em;}
 </style></head>
 <body>
   <div class="frame"></div>
   <div class="stack">
-    <div class="mark"><!--MARK--></div>
+    <div class="icon"><!--ICON--></div>
     <div class="eyebrow">{{EYEBROW}}</div>
     <div class="brand">Reach Social</div>
   </div>

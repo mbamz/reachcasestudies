@@ -114,7 +114,8 @@ def build_card(meta: dict):
     try:
         sys.path.insert(0, str(GEN))
         from render_card import render_card
-        render_card(meta["slug"], meta.get("category") or meta["eyebrow"])
+        render_card(meta["slug"], meta.get("category") or meta["eyebrow"],
+                    meta.get("card_icon", "mark"))
     except Exception as e:  # noqa: BLE001
         print(f"  [warn] card not regenerated for {meta['slug']}: {e}")
 

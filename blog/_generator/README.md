@@ -17,14 +17,24 @@ sitemap, llms.txt, JSON-LD) is produced from the same source of truth.
   `utm_campaign` values are derived from `{{SLUG}}`.
 - `render_post.py` — renders one post + rebuilds all derived surfaces, and (by
   default) regenerates the post's cover card.
-- `render_card.py` + `card_template.html` — the blog's **own** cover-card
-  renderer. Produces `blog/assets/<slug>-card.png`: the large centered lime Reach
-  mark on a dark panel with a subtle lime radial glow, the uppercase lime
-  category eyebrow, and a small "Reach Social" wordline. NO headline, NO stat,
-  and everything is vertically centered so it never crops weirdly in the 160px
-  grid. Same technique as gen_images (self-contained template → headless Chrome
-  screenshot at 2x → Pillow downscale to 1200x675). The blog owns its card art;
-  the shared `gen_images.py` is used only for the OG share image now.
+- `render_card.py` + `card_template.html` + `card_icons/` — the blog's **own**
+  cover-card renderer. Produces a **per-post distinct** `blog/assets/<slug>-card.png`
+  that still reads as one family (dark panel, inset frame, uppercase lime category
+  eyebrow, "Reach Social" wordline). Each card differs via two per-post levers:
+  - **`card_icon`** (json field): a topical glyph from `card_icons/<name>.svg`,
+    large + centered in the lime accent. Shipped icons: `growth`, `network`,
+    `checklist`, `storefront`. Add more by dropping a `<name>.svg` (viewBox
+    `0 0 100 100`, `stroke`/`fill` = `currentColor`) into `card_icons/` and
+    referencing it from the post json. Unset/unknown → falls back to the RS mark.
+  - **slug seed**: the background (lime-family accent hue, glow size/position,
+    dotted-grid density, gradient angle) is derived deterministically from the
+    slug — no two backgrounds match, and the same slug always renders the same
+    card.
+  NO headline, NO stat; everything is vertically centered so it never crops
+  weirdly in the 160px grid (verified against a simulated center-crop). Same
+  technique as gen_images (self-contained template → headless Chrome screenshot
+  at 2x → Pillow downscale to 1200x675). The blog owns its card art; the shared
+  `gen_images.py` is used only for the OG share image now.
 - `posts/<slug>.json` — per-post metadata (fields documented in the script
   header).
 - `posts/<slug>.body.html` — the inner HTML of `<article class="rs-post-body">`
@@ -40,9 +50,11 @@ sitemap, llms.txt, JSON-LD) is produced from the same source of truth.
    - `<slug>.json` — set `slug`, `page_title`, `og_title` (plain, **no
      double-quotes**), `title_html` (may contain one `<em>...</em>`),
      `description` (<=160 chars, no double-quotes), `eyebrow`, `category`,
-     `dek`, `date_iso`, `date_human`, `read_time`, `keywords` (array),
-     `cta_pre`, `llms_summary`. Optional: `excerpt` (defaults to `dek`),
-     `card_alt` (defaults to `og_title`), `author` (defaults to `Jackie He`).
+     `card_icon` (one of `card_icons/` — `growth`/`network`/`checklist`/
+     `storefront`, or a new one you add; picks the cover glyph), `dek`,
+     `date_iso`, `date_human`, `read_time`, `keywords` (array), `cta_pre`,
+     `llms_summary`. Optional: `excerpt` (defaults to `dek`), `card_alt`
+     (defaults to `og_title`), `author` (defaults to `Jackie He`).
    - `<slug>.body.html` — the article body, Reach Social company voice. Real
      numbers only, client names anonymized to category descriptors.
 
