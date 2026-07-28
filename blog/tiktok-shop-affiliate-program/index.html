@@ -45,44 +45,6 @@ body{
 a{color:var(--rs-lime);text-decoration:none;}
 a:hover{color:var(--rs-lime-2);}
 
-/* === Site header (matches case-study chrome) === */
-.rs-site-header{background:#0A0A0A;border-bottom:1px solid #1F1F22;padding:14px 26px;}
-.rs-site-header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
-.rs-site-logo img{height:30px;width:auto;display:block;}
-.rs-site-nav{display:flex;flex-wrap:wrap;gap:22px;margin:0 auto 0 18px;}
-.rs-site-nav a{font-family:var(--font-display);font-weight:600;font-size:13px;color:#FFFFFF;text-decoration:none;letter-spacing:.01em;transition:color .15s ease;}
-.rs-site-nav a:hover{color:#C5F85F;}
-.rs-site-cta{display:inline-block;background:#C5F85F;color:#0A0A0A;padding:9px 18px;border-radius:999px;font-family:var(--font-display);font-weight:800;font-size:12px;letter-spacing:.02em;text-transform:uppercase;text-decoration:none;transition:background .15s ease;}
-.rs-site-cta:hover{background:#9FC84E;}
-
-/* === Site footer — replica of reachsocial.co WP footer === */
-.rs-site-footer{background:#050505;border-top:1px solid #1F1F22;padding:0 26px 22px;color:#B8B8BC;}
-.rs-site-footer-inner{max-width:1200px;margin:0 auto;}
-.rs-footer-reach{display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding:30px 0;border-bottom:1px solid #1F1F22;}
-.rs-footer-reach p{font-family:var(--font-display);font-weight:700;font-size:17px;color:#FFFFFF;margin:0;flex:1;min-width:260px;}
-.rs-nl-mini{display:flex;gap:10px;flex:1;min-width:280px;max-width:440px;}
-.rs-nl-mini input{flex:1;background:#0E0E0E;border:1px solid #1F1F22;border-radius:999px;padding:11px 18px;color:#FFFFFF;font-family:var(--font-body);font-size:13.5px;outline:none;}
-.rs-nl-mini input:focus{border-color:rgba(197,248,95,.5);}
-.rs-nl-mini button{background:#C5F85F;color:#0A0A0A;border:0;border-radius:999px;padding:11px 24px;font-family:var(--font-display);font-weight:800;font-size:12px;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;}
-.rs-nl-mini button:hover{background:#9FC84E;}
-.rs-footer-cols{display:flex;gap:44px;flex-wrap:wrap;padding:34px 0 26px;border-bottom:1px solid #1F1F22;}
-.rs-footer-brand{flex:1.4;min-width:240px;}
-.rs-footer-brand img{height:24px;width:auto;display:block;margin-bottom:14px;}
-.rs-footer-brand p{font-size:13px;line-height:1.7;color:#B8B8BC;margin:0;max-width:320px;}
-.rs-footer-col{flex:1;min-width:150px;}
-.rs-footer-col h4{font-family:var(--font-display);font-weight:700;font-size:13px;color:#FFFFFF;margin:0 0 14px;letter-spacing:.02em;}
-.rs-footer-col ul{list-style:none;margin:0;padding:0;}
-.rs-footer-col li{margin-bottom:9px;}
-.rs-footer-col a{font-family:var(--font-body);font-size:12.5px;color:#B8B8BC;text-decoration:none;transition:color .15s ease;}
-.rs-footer-col a:hover{color:#C5F85F;}
-.rs-site-footer-bottom{padding-top:16px;text-align:center;color:#8A8F98;font-family:var(--font-body);font-size:12px;}
-@media (max-width:700px){
-  .rs-site-header-inner{gap:14px;}
-  .rs-site-nav{margin:0;width:100%;order:3;}
-  .rs-site-cta{order:2;}
-  .rs-footer-cols{flex-direction:column;gap:26px;}
-}
-
 /* === Page card === */
 .page{max-width:920px;margin:24px auto;background:var(--rs-black);position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.8),0 0 0 1px var(--rs-line-dk);border-radius:14px;overflow:hidden;}
 .rs-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid var(--rs-line-dk);background:var(--rs-ink);}
@@ -158,35 +120,166 @@ a:hover{color:var(--rs-lime-2);}
 .rs-btn{display:inline-block;background:var(--rs-lime);color:#0A0A0A;font-family:var(--font-display);font-weight:800;font-size:14px;letter-spacing:.02em;text-transform:uppercase;padding:14px 30px;border-radius:999px;text-decoration:none;transition:background .15s ease;}
 .rs-btn:hover{background:var(--rs-lime-2);color:#0A0A0A;}
 .rs-ctaband .url{display:block;margin-top:16px;font-family:var(--font-head);font-size:12.5px;color:var(--rs-dim);}
-.rs-foot{padding:16px 56px;border-top:1px solid var(--rs-line-dk);background:var(--rs-ink);font-size:12px;color:var(--rs-dim);text-align:center;}
-
-@media (max-width:700px){
-  .rs-topbar,.rs-post-hero,.rs-post-body,.rs-ctaband,.rs-foot{padding-left:24px;padding-right:24px;}
+.rs-foot{padding:16px 56px;border-top:1px solid var(--rs-line-dk);background:var(--rs-ink);font-size:12px;color:var(--rs-dim);text-align:center;}@media (max-width:700px){.rs-topbar,.rs-post-hero,.rs-post-body,.rs-ctaband,.rs-foot{padding-left:24px;padding-right:24px;}
   .rs-nl{margin-left:24px;margin-right:24px;}
   .rs-post-hero h1{font-size:32px;}
-  .page{margin:12px;}
+  .page{margin:12px;}}
+/* ==== Reach Social site chrome (matches reachsocial.co) ====================
+   A few declarations here look redundant (header padding:0 / border-bottom:0,
+   footer border-top:0, footer-socials margin-left:0, header-inner flex-wrap).
+   They are deliberate RESETS. Hand-built pages such as /partners/ still carry
+   the previous generation of this chrome in their own <style>, and it set
+   those properties on the same class names. Declaring them explicitly lets the
+   standalone snippet be pasted AFTER the legacy CSS and still win, so nobody
+   has to hand-delete the old rules. Do not "tidy" them away.
+   ========================================================================= */
+.rs-site-header,.rs-site-footer{
+  --rs-c-lime:#C0F55B;--rs-c-lime-h:#A8DC45;
+  --rs-c-head:"DM Sans","Poppins",Arial,sans-serif;
+  --rs-c-body:"Poppins","DM Sans",Arial,sans-serif;
+  box-sizing:border-box;
 }
+.rs-site-header *,.rs-site-footer *{box-sizing:border-box;}
+
+/* ---- header -------------------------------------------------------------- */
+.rs-site-header{background:#000000;padding:0;border-bottom:0;}
+.rs-site-topbar{background:#1C1C1C;padding:0 60px;}
+.rs-site-topbar-in{max-width:1280px;margin:0 auto;padding:10px 0;display:flex;
+  align-items:center;gap:16px;}
+.rs-site-topmail,.rs-site-topsocials{flex:1 1 50%;display:flex;align-items:center;gap:14px;}
+.rs-site-topmail a{display:inline-flex;align-items:center;gap:9px;font-family:var(--rs-c-body);
+  font-weight:400;font-size:14px;color:#fff;text-decoration:none;transition:color .15s ease;}
+.rs-site-topmail a:hover{color:var(--rs-c-lime);}
+.rs-site-topmail svg{color:var(--rs-c-lime);flex:none;}
+.rs-site-topsocials a{display:inline-flex;color:#fff;text-decoration:none;
+  transition:color .15s ease;}
+.rs-site-topsocials a:hover{color:var(--rs-c-lime);}
+
+.rs-site-navbar{background:#000000;padding:0 60px;}
+.rs-site-header-inner{max-width:1280px;margin:0 auto;padding:25px 0;display:flex;
+  align-items:center;gap:24px;flex-wrap:nowrap;}
+.rs-site-logo{flex:none;display:block;line-height:0;}
+.rs-site-logo img{height:36px;width:auto;display:block;}
+.rs-site-nav{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin:0 auto;}
+.rs-site-nav a{font-family:var(--rs-c-head);font-weight:500;font-size:18px;line-height:1.1;
+  color:#fff;text-decoration:none;text-transform:capitalize;white-space:nowrap;
+  transition:color .15s ease;}
+.rs-site-nav a:hover,.rs-site-nav a[aria-current="page"]{color:var(--rs-c-lime);}
+.rs-site-cta{flex:none;display:inline-block;background:var(--rs-c-lime);color:#000;
+  font-family:var(--rs-c-body);font-weight:500;font-size:16px;line-height:1;
+  padding:15px 25px;border-radius:20px;text-transform:uppercase;text-decoration:none;
+  white-space:nowrap;transition:background .15s ease;}
+.rs-site-cta:hover{background:var(--rs-c-lime-h);}
+
+/* ---- footer -------------------------------------------------------------- */
+.rs-site-footer{background:#000;padding:20px 60px;color:#fff;border-top:0;}
+.rs-site-footer a{text-decoration:none;}
+/* The panel is FULL-BLEED (only the outer 60px gutter) — its *content* is what
+   sits on the 1280px rail. Matches the live Elementor footer exactly. */
+.rs-site-footer-panel{background:rgba(28,28,28,.56);border:1px solid #1C1C1C;
+  border-radius:20px;padding:0 20px;}
+.rs-site-footer-rail{max-width:1280px;margin:0 auto;padding:50px 0 40px;}
+
+/* subscribe band */
+.rs-sub{display:grid;grid-template-columns:1.45fr .5fr .95fr;align-items:center;gap:26px;}
+.rs-sub h3{font-family:var(--rs-c-head);font-weight:600;font-size:34px;line-height:1.3;
+  color:#fff;margin:0 0 18px;}
+.rs-sub-avatars{display:flex;align-items:center;}
+.rs-sub-avatars img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+  border:2px solid #1C1C1C;margin-right:-10px;display:block;}
+.rs-sub-arrow{text-align:center;}
+.rs-sub-arrow img{width:100%;max-width:150px;height:auto;opacity:.85;display:inline-block;}
+.rs-sub-r p{font-family:var(--rs-c-body);font-weight:400;font-size:16px;line-height:1.5;
+  color:#fff;margin:0 0 14px;}
+.rs-sub-form{position:relative;display:block;max-width:360px;}
+.rs-sub-form input[type=email]{width:100%;background:#1C1C1C;border:1px solid #2A2A2A;
+  border-radius:20px;padding:12px 52px 12px 18px;font-family:var(--rs-c-body);font-weight:400;
+  font-size:16px;color:#fff;outline:none;transition:border-color .15s ease;}
+.rs-sub-form input[type=email]::placeholder{color:rgba(255,255,255,.55);}
+.rs-sub-form input[type=email]:focus{border-color:var(--rs-c-lime);}
+.rs-sub-form button{position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  background:none;border:0;padding:8px;cursor:pointer;color:var(--rs-c-lime);line-height:0;
+  transition:transform .15s ease;}
+.rs-sub-form button:hover{transform:translateY(-50%) translateX(2px);}
+.rs-sub-msg{margin:10px 0 0;font-family:var(--rs-c-body);font-size:14px;min-height:20px;}
+.rs-sub-msg.ok{color:var(--rs-c-lime);}
+.rs-sub-msg.err{color:#FF8A6B;}
+
+.rs-site-footer-rule{border:0;border-top:1px solid rgba(255,255,255,.12);margin:40px 0 36px;}
+
+/* columns */
+.rs-site-footer-cols{display:grid;grid-template-columns:1.6fr 1fr 1.1fr 1fr;gap:36px;}
+.rs-site-footer-cols h4{font-family:var(--rs-c-head);font-weight:600;font-size:24px;
+  line-height:1.3;color:var(--rs-c-lime);margin:0 0 18px;}
+.rs-site-footer-brand img{height:36px;width:auto;display:block;margin-bottom:18px;}
+.rs-site-footer-brand p{font-family:var(--rs-c-body);font-weight:400;font-size:18px;
+  line-height:1.55;color:#fff;margin:0;max-width:28ch;}
+.rs-site-footer-cols ul{list-style:none;margin:0;padding:0;}
+.rs-site-footer-cols li{margin-bottom:13px;}
+.rs-site-footer-cols li a{font-family:var(--rs-c-head);font-weight:400;font-size:18px;
+  line-height:1.2;color:#fff;text-transform:capitalize;transition:color .15s ease;}
+.rs-site-footer-cols li a:hover{color:var(--rs-c-lime);}
+.rs-site-footer-contact a{display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--rs-c-body);font-weight:400;font-size:14px;color:#fff;
+  transition:color .15s ease;}
+.rs-site-footer-contact a:hover{color:var(--rs-c-lime);}
+.rs-site-footer-contact svg{color:var(--rs-c-lime);flex:none;}
+.rs-site-footer-socials{display:flex;gap:18px;align-items:center;margin-left:0;}
+.rs-site-footer-socials a{color:#fff;display:inline-flex;transition:color .15s ease;}
+.rs-site-footer-socials a:hover{color:var(--rs-c-lime);}
+
+.rs-site-footer-bottom{max-width:1280px;margin:0 auto;padding:0 0 34px;text-align:center;
+  font-family:var(--rs-c-body);font-weight:400;font-size:16px;color:rgba(255,255,255,.6);}
+
+/* ---- responsive ---------------------------------------------------------- */
+@media(max-width:1080px){
+  .rs-site-nav{gap:18px;}
+  .rs-site-nav a{font-size:16px;}
+  .rs-site-footer-cols{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:860px){
+  .rs-site-topbar,.rs-site-navbar{padding:0 20px;}
+  .rs-site-header-inner{flex-wrap:wrap;padding:14px 0;}
+  .rs-site-nav{order:3;width:100%;margin:6px 0 0;gap:16px;}
+  .rs-site-cta{margin-left:auto;font-size:14px;padding:12px 20px;}
+  .rs-site-footer{padding:16px 16px;}
+  .rs-site-footer-panel{padding:0 22px;}
+  .rs-site-footer-rail{padding:32px 0 26px;}
+  .rs-site-footer-bottom{padding:0 0 26px;}
+  .rs-sub{grid-template-columns:1fr;gap:22px;}
+  .rs-sub-arrow{display:none;}
+  .rs-sub h3{font-size:26px;}
+  .rs-sub-form{max-width:none;}
+}
+@media(max-width:560px){
+  .rs-site-topbar-in{flex-direction:column;align-items:flex-start;gap:8px;}
+  .rs-site-topmail,.rs-site-topsocials{flex:none;}
+  .rs-site-footer-cols{grid-template-columns:1fr;gap:28px;}
+  .rs-site-footer-brand p,.rs-site-footer-cols li a{font-size:16px;}
+}
+
+/* ---- print: the chrome never appears in the PDF -------------------------- */
+@media print{.rs-site-header,.rs-site-footer{display:none !important;}}
+
+
+/* The in-card copyright strip duplicates the site footer directly below it. */
+.rs-foot { display: none !important; }
 </style>
 </head>
 <body>
 
 <header class="rs-site-header" role="banner">
-  <div class="rs-site-header-inner">
+  <div class="rs-site-topbar"><div class="rs-site-topbar-in">
+    <div class="rs-site-topmail"><a href="mailto:hello@reachsocial.co"><svg viewBox="0 0 512 512" width="15" height="15" fill="currentColor" aria-hidden="true" focusable="false"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg><span>hello@reachsocial.co</span></a></div>
+    <div class="rs-site-topsocials" aria-label="Reach Social on social media"><a href="https://www.facebook.com/reachsocial" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 320 512" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a><a href="https://twitter.com/reachsocial" aria-label="Twitter" rel="noopener"><svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a><a href="https://www.youtube.com/@reachsocial" aria-label="YouTube" rel="noopener"><svg viewBox="0 0 576 512" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305z"/></svg></a></div>
+  </div></div>
+  <div class="rs-site-navbar"><div class="rs-site-header-inner">
     <a class="rs-site-logo" href="https://reachsocial.co/" aria-label="Reach Social home">
-      <img src="https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png" alt="Reach Social">
+      <img src="https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png" alt="Reach Social" width="164" height="36">
     </a>
-    <nav class="rs-site-nav" aria-label="Primary">
-      <a href="https://reachsocial.co/">Home</a>
-      <a href="https://reachsocial.co/#about">About</a>
-      <a href="https://reachsocial.co/#services">Services</a>
-      <a href="https://reachsocial.co/#partners">Partnership</a>
-      <a href="https://reachsocial.co/#categories">Categories</a>
-      <a href="https://reachsocial.co/casestudies/">Case Studies</a>
-      <a href="https://reachsocial.co/blog/">Blog</a>
-      <a href="https://reachsocial.co/#contact">Contact</a>
-    </nav>
+    <nav class="rs-site-nav" aria-label="Primary"><a href="https://reachsocial.co/">Home</a><a href="https://reachsocial.co/#about">About</a><a href="https://reachsocial.co/#services">Services</a><a href="https://reachsocial.co/#partners">Partnership</a><a href="https://reachsocial.co/blog/" aria-current="page">Blog</a><a href="https://reachsocial.co/casestudies/">Case Studies</a><a href="https://reachsocial.co/#contact">Contact</a></nav>
     <a class="rs-site-cta" href="https://meetings.hubspot.com/reach-social/intro-call?utm_source=blog&utm_medium=cta&utm_campaign=tiktok-shop-affiliate-program">Book a strategy call</a>
-  </div>
+  </div></div>
 </header>
 
 <div class="page">
@@ -302,57 +395,80 @@ a:hover{color:var(--rs-lime-2);}
 </div>
 
 <footer class="rs-site-footer" role="contentinfo">
-  <div class="rs-site-footer-inner">
+  <div class="rs-site-footer-panel">
+   <div class="rs-site-footer-rail">
 
-    <div class="rs-footer-reach">
-      <p>Feel free to reach out if you want to collaborate with us, or simply chat.</p>
-      <form class="rs-nl-mini rs-nl-form-js" data-endpoint="https://amzadvisers.app.n8n.cloud/webhook/reachsocial-newsletter" novalidate>
-        <input type="email" name="email" placeholder="Email" aria-label="Email address" required>
-      <input type="hidden" name="form_name" value="reach-blog">
-        <button type="submit">Send</button>
-      </form>
+    <div class="rs-sub">
+      <div class="rs-sub-l">
+        <h3>Subscribe now to FOR updates<br>and exclusive offers!</h3>
+        <div class="rs-sub-avatars"><img src="https://reachsocial.co/wp-content/uploads/2025/11/40306.jpg" alt="" loading="lazy" width="40" height="40"><img src="https://reachsocial.co/wp-content/uploads/2025/11/2261.jpg" alt="" loading="lazy" width="40" height="40"><img src="https://reachsocial.co/wp-content/uploads/2025/11/2149022627.jpg" alt="" loading="lazy" width="40" height="40"><img src="https://reachsocial.co/wp-content/uploads/2025/11/2148131700.jpg" alt="" loading="lazy" width="40" height="40"></div>
+      </div>
+      <div class="rs-sub-arrow"><img src="https://reachsocial.co/wp-content/uploads/2025/11/footer-arrow.png" alt="" loading="lazy"></div>
+      <div class="rs-sub-r">
+        <p>Feel free to reach out if you want to collaborate with us, or simply chat.</p>
+        <form class="rs-sub-form" id="rs-sub-form" novalidate>
+          <label class="rs-sr-only" for="rs-sub-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Your email</label>
+          <input id="rs-sub-email" name="email" type="email" placeholder="Your Email" required autocomplete="email">
+          <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 512 512" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3.2 300.7 0 288.9s6.1-22.6 16.5-28.3l448-243.9c10.7-5.8 23.7-5.2 33.7 1.6z"/></svg></button>
+        </form>
+        <p class="rs-sub-msg" id="rs-sub-msg" role="status" aria-live="polite"></p>
+      </div>
     </div>
 
-    <div class="rs-footer-cols">
-      <div class="rs-footer-brand">
-        <a href="https://reachsocial.co/"><img src="https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png" alt="Reach Social"></a>
-        <p>We build a predictable engine across affiliates, shop operations, and paid ads&mdash;so your brand sells where your customers are already scrolling.</p>
+    <hr class="rs-site-footer-rule">
+
+    <div class="rs-site-footer-cols">
+      <div class="rs-site-footer-brand">
+        <a href="https://reachsocial.co/"><img src="https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png" alt="Reach Social" width="164" height="36"></a>
+        <p>We build a predictable engine across affiliates, shop operations, and paid ads—so your brand sells where your customers are already scrolling.</p>
       </div>
-      <div class="rs-footer-col">
+      <div>
         <h4>Company</h4>
-        <ul>
-          <li><a href="https://reachsocial.co/">Home</a></li>
-          <li><a href="https://reachsocial.co/#about">About</a></li>
-          <li><a href="https://reachsocial.co/#services">Services</a></li>
-          <li><a href="https://reachsocial.co/#partners">Partnership</a></li>
-          <li><a href="https://reachsocial.co/#categories">Categories</a></li>
-          <li><a href="https://reachsocial.co/casestudies/">Case Studies</a></li>
-          <li><a href="https://reachsocial.co/blog/">Blog</a></li>
-          <li><a href="https://reachsocial.co/partners/">Referral Partner Program</a></li>
-          <li><a href="https://reachsocial.co/#contact">Contact</a></li>
-        </ul>
+        <ul><li><a href="https://reachsocial.co/">Home</a></li><li><a href="https://reachsocial.co/#about">About</a></li><li><a href="https://reachsocial.co/#services">Services</a></li><li><a href="https://reachsocial.co/#partners">Partnership</a></li><li><a href="https://reachsocial.co/blog/">Blog</a></li><li><a href="https://reachsocial.co/casestudies/">Case Studies</a></li><li><a href="https://reachsocial.co/partners/">Referral Partner Program</a></li><li><a href="https://reachsocial.co/#contact">Contact</a></li></ul>
       </div>
-      <div class="rs-footer-col">
+      <div class="rs-site-footer-contact">
         <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:hello@reachsocial.co">hello@reachsocial.co</a></li>
-        </ul>
+        <a href="mailto:hello@reachsocial.co"><svg viewBox="0 0 512 512" width="15" height="15" fill="currentColor" aria-hidden="true" focusable="false"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg><span>hello@reachsocial.co</span></a>
       </div>
-      <div class="rs-footer-col">
+      <div>
         <h4>Follow Us On</h4>
-        <ul>
-          <li><a href="https://www.facebook.com/reachsocial">Facebook</a></li>
-          <li><a href="https://twitter.com/reachsocial">Twitter</a></li>
-          <li><a href="https://www.youtube.com/@reachsocial">Youtube</a></li>
-        </ul>
+        <div class="rs-site-footer-socials"><a href="https://www.facebook.com/reachsocial" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 320 512" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a><a href="https://twitter.com/reachsocial" aria-label="Twitter" rel="noopener"><svg viewBox="0 0 512 512" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a><a href="https://www.youtube.com/@reachsocial" aria-label="YouTube" rel="noopener"><svg viewBox="0 0 576 512" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305z"/></svg></a></div>
       </div>
     </div>
 
-    <div class="rs-site-footer-bottom">
-      <small>Copyright &copy; 2026 ReachSocial. All right reserved.</small>
-    </div>
+   </div>
+   <div class="rs-site-footer-bottom">Copyright &copy; 2026 ReachSocial. All right reserved.</div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var f=document.getElementById('rs-sub-form');
+  if(!f) return;
+  var msg=document.getElementById('rs-sub-msg');
+  var input=document.getElementById('rs-sub-email');
+  function say(t,cls){ msg.textContent=t; msg.className='rs-sub-msg '+(cls||''); }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=(input.value||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ say('Enter a valid email address.','err'); return; }
+    say('Subscribing\u2026','');
+    var body=new URLSearchParams({
+      email:email,
+      source:'blog',
+      page:location.pathname
+    }).toString();
+    fetch('https://amzadvisers.app.n8n.cloud/webhook/reachsocial-newsletter',{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body:body,
+      mode:'cors',
+      keepalive:true
+    }).then(function(){ done(); }).catch(function(){ done(); });
+    function done(){ f.reset(); say('Thanks \u2014 you\u2019re on the list.','ok'); }
+  });
+})();
+</script>
 
 <script>
 // Newsletter placeholder: no endpoint wired yet. Until data-endpoint is set,
