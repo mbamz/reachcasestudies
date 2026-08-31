@@ -233,6 +233,78 @@ a{color:inherit;text-decoration:none;}
 /* ---- print: the chrome never appears in the PDF -------------------------- */
 @media print{.rs-site-header,.rs-site-footer{display:none !important;}}
 
+/* ===== BEGIN MANUAL: featured-section styles. DO NOT REGENERATE. ===== */
+:root{--ink:#000;--ink2:#0B0B0D;--ink3:#101013;--ink4:#141418;--line:#202025;--line2:#2C2C33;
+ --bone:#F2F2F5;--mute:#C7C9D2;--dim:#9A9DA6;--lime:#C0F55B;
+ --anton:'Anton',Impact,sans-serif;--head:'DM Sans','Poppins',Arial,sans-serif;--body:'Poppins','DM Sans',Arial,sans-serif;}
+.fx{background:var(--ink);padding:78px 0 50px;border-bottom:1px solid var(--line);}
+.fx-w{max-width:1200px;margin:0 auto;padding:0 56px;}
+.fx-top{display:flex;align-items:flex-end;justify-content:space-between;gap:36px;flex-wrap:wrap;margin-bottom:30px;}
+.fx-kick{font-family:var(--head);font-weight:700;font-size:14px;color:var(--lime);}
+.fx-h1{font-family:var(--anton);font-weight:400;font-size:clamp(36px,5vw,58px);line-height:1.02;
+ color:var(--bone);margin:14px 0 0;text-transform:uppercase;}
+.fx-h1 span{color:var(--lime);}
+.fx-lede{font-family:var(--body);font-size:16px;line-height:1.65;color:var(--mute);max-width:44ch;margin:0;}
+.fx-lede b{color:var(--bone);font-weight:600;}
+
+/* ---------- level 1 : category ---------- */
+details.tier{border:1px solid var(--line);border-radius:14px;background:var(--ink2);margin-bottom:12px;overflow:hidden;}
+details.tier[open]{border-color:var(--line2);}
+summary.tier-h{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto auto;
+ gap:20px;align-items:center;padding:22px 26px;transition:background .16s ease;}
+summary.tier-h::-webkit-details-marker{display:none;}
+summary.tier-h:hover{background:var(--ink3);}
+.tier-idx{font-family:var(--head);font-weight:700;font-size:13px;color:var(--lime);
+ border:1px solid rgba(192,245,91,.32);border-radius:999px;padding:4px 11px;}
+.tier-name{font-family:var(--head);font-weight:800;font-size:25px;color:var(--bone);letter-spacing:-.01em;}
+.tier-note{font-family:var(--body);font-size:15px;color:var(--dim);margin-top:3px;}
+.tier-count{font-family:var(--body);font-size:15px;color:var(--mute);white-space:nowrap;}
+.tier-chev{width:32px;height:32px;border:1px solid var(--line2);border-radius:50%;display:flex;
+ align-items:center;justify-content:center;color:var(--mute);font-size:18px;font-family:var(--head);transition:.18s;}
+details.tier[open] .tier-chev{background:var(--lime);border-color:var(--lime);color:#0A0A0A;transform:rotate(45deg);}
+summary.tier-h:hover .tier-chev{border-color:var(--lime);color:var(--lime);}
+.tier-body{padding:0 12px 12px;}
+
+/* ---------- level 2 : case study ---------- */
+details.item{border-top:1px solid var(--line);background:transparent;}
+details.item:first-child{border-top:1px solid var(--line2);}
+details.item[open]{background:var(--ink4);border-radius:10px;}
+summary.item-h{list-style:none;cursor:pointer;display:grid;
+ grid-template-columns:1.4fr auto 200px 30px;gap:22px;align-items:center;padding:15px 16px;
+ border-left:2px solid transparent;transition:background .14s ease,border-color .14s ease;}
+summary.item-h::-webkit-details-marker{display:none;}
+summary.item-h:hover{background:var(--ink3);border-left-color:rgba(192,245,91,.5);}
+details.item[open] summary.item-h{border-left-color:var(--lime);}
+.i-cat{font-family:var(--head);font-weight:700;font-size:17.5px;color:var(--bone);}
+.i-num{font-family:var(--anton);font-size:33px;color:var(--lime);line-height:1;justify-self:end;}
+.i-lab{font-family:var(--body);font-size:14px;color:var(--dim);line-height:1.4;}
+.i-plus{width:26px;height:26px;border:1px solid var(--line2);border-radius:50%;display:flex;align-items:center;
+ justify-content:center;color:var(--dim);font-family:var(--head);font-size:15px;transition:.16s;}
+details.item[open] .i-plus{background:var(--lime);border-color:var(--lime);color:#0A0A0A;transform:rotate(45deg);}
+.i-body{padding:0 16px 22px 18px;display:flex;flex-direction:column;gap:16px;max-width:960px;}
+.i-claim{font-family:var(--body);font-size:16.5px;line-height:1.65;color:var(--bone);margin:0;}
+.i-stats{display:flex;flex-wrap:wrap;gap:34px;}
+.i-stat .v{font-family:var(--head);font-weight:800;font-size:22px;color:var(--lime);}
+.i-stat .l{font-family:var(--body);font-size:14px;color:var(--dim);margin-top:3px;}
+.i-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+ border-top:1px solid var(--line);padding-top:14px;}
+.i-path{font-family:var(--body);font-size:14px;color:var(--mute);}
+.i-go{font-family:var(--head);font-weight:700;font-size:15px;color:var(--lime);text-decoration:none;}
+.i-go:hover i{display:inline-block;transform:translateX(5px);transition:.16s;font-style:normal;}
+.fx-note{font-family:var(--body);font-size:14px;color:var(--dim);margin-top:24px;}
+@media(max-width:900px){.fx-w{padding:0 20px;}
+ summary.tier-h{grid-template-columns:auto 1fr auto;gap:12px;padding:18px 16px;}
+ .tier-count{grid-column:2;font-size:14px;}
+ summary.item-h{grid-template-columns:1fr auto;gap:8px 14px;padding:14px 12px;}
+ .i-cat{grid-column:1/-1;}.i-num{grid-column:1;justify-self:start;font-size:30px;}
+ .i-plus{grid-row:1;grid-column:2;}.i-lab{grid-column:1/-1;}
+ .i-stats{gap:22px;}}
+
+.wk-head{padding:52px 0 10px;}
+.wk-kick{font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;color:#C0F55B;}
+.wk-h{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(30px,4vw,44px);
+ color:#F2F2F5;margin:10px 0 0;text-transform:uppercase;letter-spacing:.01em;}
+/* ===== END MANUAL: featured-section styles ===== */
 </style>
 </head>
 <body>
@@ -249,12 +321,118 @@ a{color:inherit;text-decoration:none;}
     <a class="rs-site-cta" href="https://reachsocial.co/#contact">Book a strategy call</a>
   </div></div>
 </header>
-<header class="hero"><div class="hero-inner">
-  <div class="eyebrow">Reach Social &middot; TikTok Shop</div>
-  <h1>Real TikTok Shop wins. <em>The systems behind them.</em></h1>
-  <p>Operator playbooks from brands scaling on TikTok Shop. Real numbers, anonymized where required.</p>
-</div></header>
+<!-- BEGIN MANUAL: featured section. Hand-built. DO NOT REGENERATE. -->
+<section class="fx"><div class="fx-w">
+      <div class="fx-top"><div><div class="fx-kick">Featured case studies</div>
+        <h1 class="fx-h1">We help all brands.<br><span>Every stage.</span></h1></div>
+        <p class="fx-lede">Cold launches, category scale-ups and full omnichannel builds.
+          <b>Every figure is pulled from a live account</b> &mdash; names removed, numbers untouched.</p></div>
+      <details class="tier" name="fx-tier" open>
+          <summary class="tier-h"><span class="tier-idx">01</span>
+            <span><span class="tier-name">Cold Start</span>
+              <span class="tier-note">All began at $0 on the channel</span></span>
+            <span class="tier-count">5 case studies</span>
+            <span class="tier-chev">+</span></summary>
+          <div class="tier-body"><details class="item" name="fx-item" open>
+      <summary class="item-h"><span class="i-cat">Specialty food &amp; condiments</span>
+        <span class="i-num">$960K</span>
+        <span class="i-lab">TikTok Shop GMV · first 90 days</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">From $0 to nearly a million in one quarter.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">$0</div><div class="l">Starting point</div></div><div class="i-stat"><div class="v">890</div><div class="l">Creator videos</div></div><div class="i-stat"><div class="v">$10.7K</div><div class="l">GMV per day</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop &middot; First 90 days</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/cold-start-specialty-food/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details><details class="item" name="fx-item">
+      <summary class="item-h"><span class="i-cat">Family &amp; height supplements</span>
+        <span class="i-num">$351K</span>
+        <span class="i-lab">Monthly GMV · month 12</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">~14.5× in twelve months, built from a standing start.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">$0 → $222K</div><div class="l">Affiliate GMV</div></div><div class="i-stat"><div class="v">28 → 787</div><div class="l">Distinct creators</div></div><div class="i-stat"><div class="v">2,473</div><div class="l">Videos / month</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop → Amazon &middot; Jun 2025 → Jun 2026</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/cold-start-family-supplements/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details><details class="item" name="fx-item">
+      <summary class="item-h"><span class="i-cat">Energy &amp; sports nutrition</span>
+        <span class="i-num">$313K</span>
+        <span class="i-lab">Monthly GMV · month 6</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">A cult brand finally converting its fandom.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">3.2×</div><div class="l">GMV growth</div></div><div class="i-stat"><div class="v">$124K</div><div class="l">Live GMV</div></div><div class="i-stat"><div class="v">13,910</div><div class="l">Units / month</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop &middot; Jan – Jun 2026</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/cold-start-energy-nutrition/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details><details class="item" name="fx-item">
+      <summary class="item-h"><span class="i-cat">Breath mints &amp; oral care</span>
+        <span class="i-num">$149K</span>
+        <span class="i-lab">Monthly GMV · 100% creator-driven</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">Two SKUs, zero brand-posted content, +$1M on Amazon alongside.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">+$1M</div><div class="l">Added on Amazon</div></div><div class="i-stat"><div class="v">~50%</div><div class="l">Amazon halo lift</div></div><div class="i-stat"><div class="v">561</div><div class="l">Active affiliates</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop → Amazon &middot; 30 days to 16 Jul 2026</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/cold-start-oral-care/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details><details class="item" name="fx-item">
+      <summary class="item-h"><span class="i-cat">Global sports nutrition</span>
+        <span class="i-num">$182K</span>
+        <span class="i-lab">GMV · first 5 months</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">An enterprise brand opening a channel it had never sold on.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">96.2%</div><div class="l">Affiliate share</div></div><div class="i-stat"><div class="v">$0.00</div><div class="l">Posted by the brand</div></div><div class="i-stat"><div class="v">~19%</div><div class="l">Amazon halo lift</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop → Amazon &middot; 1 Feb – 30 Jun 2026</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/cold-start-global-sports-nutrition/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details></div></details><details class="tier" name="fx-tier">
+          <summary class="tier-h"><span class="tier-idx">02</span>
+            <span><span class="tier-name">Growth</span>
+              <span class="tier-note">Already selling — compounded</span></span>
+            <span class="tier-count">3 case studies</span>
+            <span class="tier-chev">+</span></summary>
+          <div class="tier-body"><details class="item" name="fx-item">
+      <summary class="item-h"><span class="i-cat">Protein &amp; sports nutrition</span>
+        <span class="i-num">$540K</span>
+        <span class="i-lab">GMV · 90 days</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">+60% on the prior quarter, almost entirely creator-driven.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">+60%</div><div class="l">vs prior period</div></div><div class="i-stat"><div class="v">95.37%</div><div class="l">Creator-driven</div></div><div class="i-stat"><div class="v">4</div><div class="l">Creators over $20K</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop &middot; 1 Feb – 30 Apr 2026</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/growth-protein-nutrition/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details><details class="item" name="fx-item">
+      <summary class="item-h"><span class="i-cat">Beauty &amp; skincare devices</span>
+        <span class="i-num">$150K</span>
+        <span class="i-lab">Affiliate GMV · 2 weeks</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">A viral device turned into a repeatable engine in fourteen days.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">+400%</div><div class="l">Month over month</div></div><div class="i-stat"><div class="v">600</div><div class="l">Videos in 2 weeks</div></div><div class="i-stat"><div class="v">~43</div><div class="l">Videos per day</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop &middot; 2-week window</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/growth-beauty-devices/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details><details class="item" name="fx-item">
+      <summary class="item-h"><span class="i-cat">Pet care · calming diffusers</span>
+        <span class="i-num">$101K</span>
+        <span class="i-lab">Monthly GMV · from $34K</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">Tripled in five months, with the halo landing on Amazon too.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">2.97×</div><div class="l">Revenue vs Feb</div></div><div class="i-stat"><div class="v">51% → 88%</div><div class="l">Affiliate share</div></div><div class="i-stat"><div class="v">~27%</div><div class="l">Amazon halo lift</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop → Amazon &middot; 30 days to 10 Jul 2026</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/growth-pet-care/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details></div></details><details class="tier" name="fx-tier">
+          <summary class="tier-h"><span class="tier-idx">03</span>
+            <span><span class="tier-name">Omnichannel</span>
+              <span class="tier-note">TikTok Shop demand, captured across the stack</span></span>
+            <span class="tier-count">1 case study</span>
+            <span class="tier-chev">+</span></summary>
+          <div class="tier-body"><details class="item" name="fx-item">
+      <summary class="item-h"><span class="i-cat">Sleep &amp; natural wellness</span>
+        <span class="i-num">$861K</span>
+        <span class="i-lab">TikTok Shop GMV · 180 days</span>
+        <span class="i-plus">+</span></summary>
+      <div class="i-body"><p class="i-claim">The whole thesis in one account: creator demand on TikTok, captured on Amazon, retargeted through DSP.</p>
+        <div class="i-stats"><div class="i-stat"><div class="v">+145%</div><div class="l">TikTok Shop YoY</div></div><div class="i-stat"><div class="v">+$1.3M</div><div class="l">Added on Amazon</div></div><div class="i-stat"><div class="v">~22%</div><div class="l">Amazon halo lift</div></div><div class="i-stat"><div class="v">+35%</div><div class="l">New-customer retargeting</div></div></div>
+        <div class="i-foot"><span class="i-path">TikTok Shop → Amazon → DSP &middot; 180 days to 16 Jul 2026</span>
+          <a class="i-go" href="https://reachsocial.co/casestudies/omnichannel-sleep-wellness/">Read the full breakdown <i>&rarr;</i></a></div>
+      </div></details></div></details>
+    </div></section>
+<!-- END MANUAL: featured section -->
 <main class="wrap">
+<!-- BEGIN MANUAL: "Undeniable evidence" heading. Hand-built. DO NOT REGENERATE. -->
+<div class="wk-head"><div class="wk-kick">More of our magic</div><h2 class="wk-h">Undeniable evidence</h2></div>
+<!-- END MANUAL: "Undeniable evidence" heading -->
 <div class="filterbar"><div class="filters"><span class="flabel" id="rs-dd-label">Industry</span><div class="dd" data-dd="industry"><button type="button" class="dd-trigger" id="rs-dd-trig" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="rs-dd-label rs-dd-trig"><span class="dd-trigger-val">All industries</span><span class="dd-caret" aria-hidden="true">&#9662;</span></button><div class="dd-menu" id="rs-dd-menu" role="listbox" aria-labelledby="rs-dd-label" hidden><button type="button" class="ddmenu-item is-active" data-value="all">All industries</button><button type="button" class="ddmenu-item" data-value="baby-and-maternity">Baby and maternity</button><button type="button" class="ddmenu-item" data-value="food-and-beverage">Food and beverage</button><button type="button" class="ddmenu-item" data-value="health">Health</button><button type="button" class="ddmenu-item" data-value="health-and-wellness">Health and wellness</button><button type="button" class="ddmenu-item" data-value="health-and-wellness-supplements">Health and wellness supplements</button><button type="button" class="ddmenu-item" data-value="hobbies-toys-craft-kits">Hobbies &amp; Toys (Craft Kits)</button><button type="button" class="ddmenu-item" data-value="home-and-garden-pest-control">Home and garden pest control</button><button type="button" class="ddmenu-item" data-value="oral-care-breath-mints">Oral care / breath mints</button><button type="button" class="ddmenu-item" data-value="personal-care">Personal care</button><button type="button" class="ddmenu-item" data-value="pet-supplies">Pet supplies</button><button type="button" class="ddmenu-item" data-value="wellness-supplements">Wellness / Supplements</button></div></div><span class="fcount" id="rs-fcount">14 case studies</span></div></div><div class="empty-state" id="rs-empty">No case studies match that industry yet &mdash; try another option.</div>
 <div class="grid">
       <a class="cs-card" data-industry="health-and-wellness" href="/casestudies/negotiated-retainer-flip-health-wellness/">
