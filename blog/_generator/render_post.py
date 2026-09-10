@@ -73,8 +73,46 @@ def load_meta(slug: str) -> dict:
     return m
 
 
+
+# The 2026-09-09 writer rule, ENFORCED here rather than trusted. reach-blog-writer.md
+# requires a TL;DR block, a table, an external citation and a sourced named-person
+# quote. Until this function existed the rule lived only in the agent definition,
+# and a rule with no check is one that gets followed about a quarter of the time -
+# measured on the mikebegg.me side, where TL;DR sat at 13 of 57 posts while
+# "available and optional". Applies to posts dated on or after the rule; older
+# posts render as before so the index can always be rebuilt.
+RULE_EFFECTIVE = "2026-09-09"
+
+
+def lint_body(meta: dict, body: str) -> None:
+    if str(meta.get("date_iso", "")) < RULE_EFFECTIVE:
+        print(f"  lint: skipped, post dated {meta.get('date_iso')} predates the {RULE_EFFECTIVE} rule")
+        return
+    import re
+    missing = []
+    if not re.search(r"<h2[^>]*>\s*(TL;DR|Takeaways|Key Takeaways)\s*</h2>\s*<ul", body, re.I):
+        missing.append("TL;DR block: an <h2>TL;DR</h2> (or Takeaways / Key Takeaways) followed IMMEDIATELY by a <ul>")
+    if "<table" not in body:
+        missing.append("at least one <table>")
+    ext = [m for m in re.findall(r'<a\s[^>]*href="(https?://[^"]+)"', body, re.I)
+           if "reachsocial.co" not in m.lower() and "amzadvisers.com" not in m.lower()
+           and "mikebegg.me" not in m.lower()]
+    if not ext:
+        missing.append("at least one EXTERNAL authoritative citation (an <a href> to a domain that is not ours)")
+    if not re.search(r"<blockquote[^>]*>.*?<a\s[^>]*href=.*?</blockquote>", body, re.I | re.S):
+        missing.append("one named-person <blockquote> carrying its source <a href> inside it")
+    if missing:
+        print(f"REFUSING TO RENDER {meta.get('slug')}: the post is missing")
+        for m in missing:
+            print("   -", m)
+        print("  These are the reach-blog-writer.md checklist lines from 2026-09-09. Fix the body, re-run.")
+        raise SystemExit(7)
+    print("  lint: TL;DR, table, external citation, sourced quote - all present")
+
+
 def render_page(meta: dict) -> str:
     body = (POSTS / f"{meta['slug']}.body.html").read_text(encoding="utf-8").rstrip("\n")
+    lint_body(meta, body)
     kw = ",".join(json.dumps(k, ensure_ascii=False) for k in meta["keywords"])
     t = TEMPLATE.read_text(encoding="utf-8")
     repl = {
