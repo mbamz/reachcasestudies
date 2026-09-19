@@ -46,7 +46,7 @@ a{color:var(--rs-lime);text-decoration:none;}
 a:hover{color:var(--rs-lime-2);}
 
 /* === Page card === */
-.page{max-width:920px;margin:24px auto;background:var(--rs-black);position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.8),0 0 0 1px var(--rs-line-dk);border-radius:14px;overflow:hidden;}
+.page{max-width:1140px;margin:24px auto;background:var(--rs-black);position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.8),0 0 0 1px var(--rs-line-dk);border-radius:14px;overflow:hidden;}
 .rs-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid var(--rs-line-dk);background:var(--rs-ink);}
 .rs-topbar .crumb{font-family:var(--font-head);font-size:12px;color:var(--rs-dim);}
 .rs-topbar .crumb a{color:var(--rs-dim);text-decoration:none;}
@@ -92,7 +92,10 @@ a:hover{color:var(--rs-lime-2);}
 .rs-nl .ok{display:none;font-family:var(--font-head);font-weight:700;font-size:13.5px;color:var(--rs-lime);margin-top:12px;}
 
 /* === Article body === */
-.rs-post-body{padding:36px 56px 8px;}
+.rs-post-body{padding:36px 56px 8px;max-width:920px;margin:0 auto;}
+/* Tables and images may use the full card width; only running prose is
+   held to a readable measure. */
+.rs-post-body table,.rs-post-body figure,.rs-post-body img{max-width:100%;}
 .rs-post-body h2{font-family:var(--font-display);font-weight:800;color:var(--rs-white);font-size:24px;line-height:1.2;margin:36px 0 6px;}
 .rs-post-body h2:first-child{margin-top:0;}
 .rs-post-body h2 + .heading-rule{display:block;width:48px;height:2px;background:var(--rs-lime);margin:0 0 16px;}
