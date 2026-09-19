@@ -100,6 +100,18 @@ a:hover{color:var(--rs-lime-2);}
 .rs-post-body p{font-size:15.5px;line-height:1.75;margin:0 0 16px;color:var(--rs-mist);}
 .rs-post-body ul{margin:0 0 16px;padding-left:22px;}
 .rs-post-body li{font-size:15.5px;line-height:1.7;margin-bottom:8px;color:var(--rs-mist);}
+/* Added 2026-09-09. The writer rule now REQUIRES a table and a sourced quote in
+   every post; until this there was no rule for either, so they rendered unstyled
+   and a table overflowed the viewport on mobile. display:block + overflow-x is
+   what lets a wide table scroll inside the post instead of pushing the page. */
+.rs-post-body table{display:block;overflow-x:auto;width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14.5px;line-height:1.55;color:var(--rs-mist);}
+.rs-post-body thead th{font-family:var(--font-head);font-weight:700;color:var(--rs-white);text-align:left;padding:10px 12px;border-bottom:2px solid var(--rs-lime);background:var(--rs-panel);white-space:nowrap;}
+.rs-post-body td{padding:10px 12px;border-bottom:1px solid var(--rs-line-dk);vertical-align:top;}
+.rs-post-body tbody tr:hover td{background:rgba(197,248,95,.05);}
+.rs-post-body blockquote{margin:0 0 20px;padding:14px 18px;border-left:3px solid var(--rs-lime);background:var(--rs-panel);color:var(--rs-white);font-size:16px;line-height:1.65;font-style:normal;}
+.rs-post-body blockquote p{margin:0 0 8px;color:var(--rs-white);}
+.rs-post-body blockquote cite,.rs-post-body blockquote footer{display:block;font-style:normal;font-size:13.5px;color:var(--rs-dim);}
+.rs-post-body blockquote a{color:var(--rs-lime);}
 .rs-post-body strong{color:var(--rs-white);}
 .rs-post-body a{text-decoration:underline;text-decoration-color:rgba(197,248,95,.4);text-underline-offset:3px;}
 .rs-callout{border-left:3px solid var(--rs-lime);background:rgba(197,248,95,.06);padding:14px 18px;border-radius:0 8px 8px 0;font-size:14.5px;line-height:1.65;margin:20px 0;}
