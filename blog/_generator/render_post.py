@@ -26,7 +26,11 @@ INPUT (per post), living in blog/_generator/posts/:
   dek            hero sub-headline paragraph (HTML entities ok)
   excerpt        index card excerpt (defaults to dek if omitted)
   author         byline author (e.g. "Jackie He")
-  date_iso       YYYY-MM-DD
+  date_iso       YYYY-MM-DD (published)
+  date_modified  YYYY-MM-DD, optional. Last real content change. Drives the sitemap
+                 <lastmod> and JSON-LD dateModified. Without it both fall back to
+                 date_iso, which is how a re-render used to silently roll a hand-set
+                 lastmod back (what-is-gmv-max 10-13 -> 07-28, caught 2026-10-26).
   date_human     e.g. "July 28, 2026"
   read_time      e.g. "7 min read"
   keywords       JSON array of strings -> JSON-LD "about"
@@ -124,6 +128,7 @@ def render_page(meta: dict) -> str:
         "{{EYEBROW}}": meta["eyebrow"],
         "{{DEK}}": meta["dek"],
         "{{DATE_ISO}}": meta["date_iso"],
+        "{{DATE_MODIFIED}}": meta.get("date_modified") or meta["date_iso"],
         "{{DATE_HUMAN}}": meta["date_human"],
         "{{READ_TIME}}": meta["read_time"],
         "{{KEYWORDS_JSON}}": kw,
@@ -251,14 +256,14 @@ def rebuild_index(reg: list):
 
 
 def rebuild_sitemap(reg: list):
-    newest = reg[0]["date_iso"]
+    newest = max((p.get("date_modified") or p["date_iso"]) for p in reg)
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
              '  <url>', f'    <loc>{SITE}/blog/</loc>', f'    <lastmod>{newest}</lastmod>',
              '    <changefreq>weekly</changefreq>', '    <priority>0.8</priority>', '  </url>']
     for p in reg:
         parts += ['  <url>', f'    <loc>{url_for(p["slug"])}</loc>',
-                  f'    <lastmod>{p["date_iso"]}</lastmod>',
+                  f'    <lastmod>{p.get("date_modified") or p["date_iso"]}</lastmod>',
                   '    <changefreq>monthly</changefreq>', '    <priority>0.7</priority>', '  </url>']
     parts += ['</urlset>', '']
     wlf(BLOG / "sitemap.xml", "\n".join(parts))

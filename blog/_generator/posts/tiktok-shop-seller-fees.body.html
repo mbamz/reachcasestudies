@@ -32,6 +32,79 @@
     <p><strong>GMV Max</strong> and other paid amplification on TikTok Shop work the same way: it's spend you allocate against a target, not a platform fee layered on top of the referral fee. TikTok doesn't charge sellers a fixed percentage to use GMV Max &mdash; you set a budget, and the referral fee still applies to whatever sales close, paid or organic.</p>
     <p><a href="https://reachsocial.co/casestudies/controlled-ad-scale-food-bev/">A food and beverage brand we work with scaled daily ad budget up 125% over roughly ten days and cleared $10K in GMV in the first four days of June</a> off the increased spend. The referral fee on those sales was the same flat 6% it would have been on an organic order. The cost that moved was the budget the brand chose to commit, not a rate TikTok imposed.</p>
 
+    <h2>Calculator: what you keep on each order</h2>
+    <span class="heading-rule"></span>
+    <p>Put in your own numbers. It applies TikTok's current US referral fee, your affiliate commission and your product, fulfillment and ad costs, then shows what's left per order and the affiliate rate where an order stops making money.</p>
+    <div class="rs-calc" id="rs-calc">
+      <style>
+        .rs-calc{border:1px solid var(--rs-line-dk);background:var(--rs-panel);border-radius:14px;padding:22px;margin:8px 0 28px;font-family:var(--font-body)}
+        .rs-calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+        @media(max-width:720px){.rs-calc-grid{grid-template-columns:1fr}}
+        .rs-calc label{display:block;margin:0 0 14px;color:var(--rs-white);font-weight:600;font-size:14px}
+        .rs-calc small{display:block;color:var(--rs-dim);font-weight:400;font-size:12px;margin-top:4px;line-height:1.45}
+        .rs-calc input,.rs-calc select{box-sizing:border-box;width:100%;margin-top:6px;padding:10px 12px;background:var(--rs-ink);color:var(--rs-white);border:1px solid var(--rs-line-dk);border-radius:8px;font:inherit;font-size:15px}
+        .rs-calc input:focus,.rs-calc select:focus{outline:none;border-color:var(--rs-lime)}
+        .rs-calc-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--rs-line-dk);font-size:14.5px;color:var(--rs-mist)}
+        .rs-calc-row b{color:var(--rs-white);font-weight:600}
+        .rs-calc-keep{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0 6px}
+        .rs-calc-keep span{color:var(--rs-white);font-weight:700}
+        .rs-calc-keep strong{font-family:var(--font-display);font-size:30px;font-weight:800;color:var(--rs-lime)}
+        .rs-calc-keep strong.neg{color:#FF6B6B}
+        .rs-calc-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+        .rs-calc-tile{border:1px solid var(--rs-line-dk);border-radius:10px;padding:12px}
+        .rs-calc-tile strong{display:block;font-family:var(--font-display);font-size:22px;color:var(--rs-white)}
+        .rs-calc-tile span{font-size:12px;color:var(--rs-dim)}
+        .rs-calc p.rs-calc-note{font-size:14px;color:var(--rs-mist);margin:10px 0 4px}
+        .rs-calc p.rs-calc-fine{font-size:12px;color:var(--rs-dim);margin:0 0 14px}
+        .rs-calc a.rs-calc-cta{display:inline-block;background:var(--rs-lime);color:var(--rs-black);font-weight:700;padding:11px 18px;border-radius:999px;text-decoration:none}
+      </style>
+      <div class="rs-calc-grid">
+        <div>
+          <label>Item price ($)<input id="rc-price" inputmode="decimal" value="35"><small>What the customer pays. TikTok charges the fee on this, including any shipping they pay.</small></label>
+          <label>Referral fee<select id="rc-rate"><option value="0.06">Most categories (6%)</option><option value="0.05">Certain jewelry or pre-owned (5%)</option><option value="0.03">New seller, first 30 days (3%)</option></select></label>
+          <label>Affiliate commission (%)<input id="rc-aff" inputmode="decimal" value="18"><small>What you pay the creator who drove the sale. 10-20% is typical.</small></label>
+          <label>Product cost per unit ($)<input id="rc-cogs" inputmode="decimal" value="7"></label>
+          <label>Fulfillment per unit ($)<input id="rc-ful" inputmode="decimal" value="5"><small>3PL, your own warehouse, or Fulfilled by TikTok.</small></label>
+          <label>Ad spend per order ($, optional)<input id="rc-ads" inputmode="decimal" value="0"><small>GMV Max, Spark Ads or other TikTok ads, if you run them.</small></label>
+        </div>
+        <div>
+          <div class="rs-calc-row">Referral fee <b id="rc-o-ref"></b></div>
+          <div class="rs-calc-row">Affiliate commission <b id="rc-o-aff"></b></div>
+          <div class="rs-calc-row">Fulfillment <b id="rc-o-ful"></b></div>
+          <div class="rs-calc-row">Product cost <b id="rc-o-cogs"></b></div>
+          <div class="rs-calc-row">Ad spend <b id="rc-o-ads"></b></div>
+          <div class="rs-calc-keep"><span>You keep per order</span><strong id="rc-o-net"></strong></div>
+          <div class="rs-calc-tiles">
+            <div class="rs-calc-tile"><strong id="rc-o-take"></strong><span>TikTok + creator take</span></div>
+            <div class="rs-calc-tile"><strong id="rc-o-margin"></strong><span>Margin after all costs</span></div>
+          </div>
+          <p class="rs-calc-note" id="rc-o-be"></p>
+          <p class="rs-calc-fine">Rates from TikTok's US referral fee table, checked October 26, 2026. Excludes returns: on a refund TikTok keeps 20% of the referral fee, capped at $5 per SKU.</p>
+          <a class="rs-calc-cta" href="https://meetings.hubspot.com/reach-social/intro-call?utm_source=blog&amp;utm_medium=calculator&amp;utm_campaign=tiktok-shop-seller-fees">Talk to Reach about your margins</a>
+        </div>
+      </div>
+      <script>
+      (function(){
+        var $=function(id){return document.getElementById(id)};
+        var n=function(id){var v=parseFloat(String($(id).value).replace(/[^0-9.]/g,''));return isFinite(v)?v:0};
+        var usd=function(x){return (x<0?'-$':'$')+Math.abs(x).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',')};
+        var pct=function(x){return (x*100).toFixed(1)+'%'};
+        function calc(){
+          var p=n('rc-price'),rate=parseFloat($('rc-rate').value),ref=p*rate,aff=p*n('rc-aff')/100,ful=n('rc-ful'),cogs=n('rc-cogs'),ads=n('rc-ads');
+          var net=p-ref-aff-ful-cogs-ads,maxAff=p>0?(p-ref-ful-cogs-ads)/p:0;
+          $('rc-o-ref').textContent=usd(-ref)+' ('+pct(rate)+')';
+          $('rc-o-aff').textContent=usd(-aff)+' ('+pct(n('rc-aff')/100)+')';
+          $('rc-o-ful').textContent=usd(-ful);$('rc-o-cogs').textContent=usd(-cogs);$('rc-o-ads').textContent=usd(-ads);
+          var o=$('rc-o-net');o.textContent=usd(net);o.className=net<0?'neg':'';
+          $('rc-o-take').textContent=pct(p>0?(ref+aff)/p:0);
+          $('rc-o-margin').textContent=pct(p>0?net/p:0);
+          $('rc-o-be').innerHTML=maxAff>0?'At these numbers you break even at a <strong>'+pct(maxAff)+'</strong> affiliate commission. Above that, every creator sale loses money.':'At these numbers the order loses money before any affiliate commission. Fix price or cost first.';
+        }
+        ['rc-price','rc-rate','rc-aff','rc-cogs','rc-ful','rc-ads'].forEach(function(id){$(id).addEventListener('input',calc);$(id).addEventListener('change',calc)});
+        calc();
+      })();
+      </script>
+    </div>
     <h2>What the full stack actually costs at scale</h2>
     <span class="heading-rule"></span>
     <p>Put together, a brand doing real volume on TikTok Shop is managing three separate cost lines, not one blended "TikTok fee":</p>

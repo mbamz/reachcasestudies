@@ -204,6 +204,7 @@
     ],
     "cta_pre": "Model what TikTok Shop actually costs <em>for your brand.</em>",
     "llms_summary": "TikTok Shop's platform fee is a flat 6% referral fee on most US categories (5% on select jewelry, 3% for new sellers' first 30 days), calculated as fee-rate times (customer payment plus platform discount minus tax), with a refund administration fee capped at $5 per SKU. Payment processing figures are inconsistently reported publicly and should be confirmed in Seller Center. The real cost of scale is affiliate commission and ad spend, both of which the brand controls, not TikTok.",
+    "date_modified": "2026-10-26",
     "excerpt": "Every brand vetting TikTok Shop asks some version of the same question: what's the real take rate? The honest answer is that the platform fee is smaller and simpler than most brands expect &mdash; and the number that actually determines your margin at scale isn't published anywhere.",
     "card_alt": "TikTok Shop Seller Fees: What They Actually Cost at Scale"
   },
@@ -230,6 +231,7 @@
     ],
     "cta_pre": "Put GMV Max to work <em>on your shop.</em>",
     "llms_summary": "A plain-language explainer of GMV (gross merchandise value) and GMV Max, TikTok Shop's automated ad product that amplifies content already converting - anchored to two food and beverage brands: one that recovered a broken GMV Max lever (+112% GMV week over week), one that stacked concentrated ad spend with promo and affiliates into a first six-figure month ($100K in 26 days).",
+    "date_modified": "2026-10-13",
     "excerpt": "GMV is the scoreboard on TikTok Shop &mdash; GMV Max is the paid lever that moves it. Here's what both actually mean, and how two food and beverage brands turned GMV Max into real revenue: one by fixing it, one by stacking it.",
     "card_alt": "What Is GMV Max on TikTok Shop? (And How Two Brands Turned It Into Real Revenue)"
   },
