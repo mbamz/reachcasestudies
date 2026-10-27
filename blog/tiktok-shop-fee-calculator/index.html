@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TikTok Shop Fee Calculator: Per-Order Margin Math | Reach Social</title>
+<link rel="canonical" href="https://reachsocial.co/blog/tiktok-shop-fee-calculator/">
+<meta name="description" content="A TikTok Shop fee calculator done per order: worked contribution margin at $30, $60 and $120 AOV with referral fee, affiliate commission and GMV Max ad cost.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TikTok Shop Fee Calculator: The Per-Order Math Brands Actually Run">
+<meta property="og:description" content="A TikTok Shop fee calculator done per order: worked contribution margin at $30, $60 and $120 AOV with referral fee, affiliate commission and GMV Max ad cost.">
+<meta property="og:url" content="https://reachsocial.co/blog/tiktok-shop-fee-calculator/">
+<meta property="og:image" content="https://reachsocial.co/blog/assets/tiktok-shop-fee-calculator-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Reach Social">
+<meta property="article:published_time" content="2026-10-27">
+<meta property="article:author" content="Jackie He">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TikTok Shop Fee Calculator: The Per-Order Math Brands Actually Run">
+<meta name="twitter:description" content="A TikTok Shop fee calculator done per order: worked contribution margin at $30, $60 and $120 AOV with referral fee, affiliate commission and GMV Max ad cost.">
+<meta name="twitter:image" content="https://reachsocial.co/blog/assets/tiktok-shop-fee-calculator-og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"TikTok Shop Fee Calculator: The Per-Order Math Brands Actually Run","description":"A TikTok Shop fee calculator done per order: worked contribution margin at $30, $60 and $120 AOV with referral fee, affiliate commission and GMV Max ad cost.","image":"https://reachsocial.co/blog/assets/tiktok-shop-fee-calculator-og.png","datePublished":"2026-10-27","dateModified":"2026-10-27","author":{"@type":"Person","name":"Jackie He","worksFor":{"@type":"Organization","name":"Reach Social","url":"https://reachsocial.co"}},"publisher":{"@type":"Organization","name":"Reach Social","url":"https://reachsocial.co","logo":{"@type":"ImageObject","url":"https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://reachsocial.co/blog/tiktok-shop-fee-calculator/"},"about":["TikTok Shop fee calculator","how much does it cost to sell on TikTok Shop","TikTok Shop profit margin","TikTok Shop contribution margin","GMV Max"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Reach Social","url":"https://reachsocial.co","logo":"https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png","sameAs":["https://www.facebook.com/reachsocial","https://twitter.com/reachsocial","https://www.youtube.com/@reachsocial"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://reachsocial.co/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://reachsocial.co/blog/"},{"@type":"ListItem","position":3,"name":"TikTok Shop Fee Calculator: The Per-Order Math Brands Actually Run","item":"https://reachsocial.co/blog/tiktok-shop-fee-calculator/"}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rs-lime:#C5F85F; --rs-lime-2:#9FC84E;
+  --rs-black:#000000; --rs-ink:#0A0A0A; --rs-panel:#0E0E0E; --rs-line-dk:#1F1F22;
+  --rs-white:#FFFFFF; --rs-mist:#B8B8BC; --rs-dim:#8A8F98;
+  --font-display:"DM Sans","Poppins",Calibri,Arial,sans-serif;
+  --font-head:"DM Sans","Poppins",Calibri,Arial,sans-serif;
+  --font-body:"Poppins","DM Sans",Calibri,Arial,sans-serif;
+}
+html,body{background:var(--rs-black);margin:0;}
+body{
+  background-color:var(--rs-black);
+  background-image:radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:22px 22px;
+  color:var(--rs-mist);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--rs-lime);text-decoration:none;}
+a:hover{color:var(--rs-lime-2);}
+
+/* === Page card === */
+.page{max-width:1140px;margin:24px auto;background:var(--rs-black);position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.8),0 0 0 1px var(--rs-line-dk);border-radius:14px;overflow:hidden;}
+.rs-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid var(--rs-line-dk);background:var(--rs-ink);}
+.rs-topbar .crumb{font-family:var(--font-head);font-size:12px;color:var(--rs-dim);}
+.rs-topbar .crumb a{color:var(--rs-dim);text-decoration:none;}
+.rs-topbar .crumb a:hover{color:var(--rs-lime);}
+.rs-topbar .tag{font-family:var(--font-head);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rs-black);background:var(--rs-lime);padding:5px 12px;border-radius:999px;}
+
+/* === Hero === */
+.rs-post-hero{
+  padding:56px 56px 40px;
+  background:radial-gradient(ellipse at top right, rgba(197,248,95,0.10) 0%, transparent 55%),linear-gradient(180deg,#050505 0%,#000000 100%);
+  position:relative;overflow:hidden;
+}
+.rs-post-hero::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:44px 44px;pointer-events:none;
+  mask-image:linear-gradient(180deg,transparent 0%,black 30%,black 80%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,black 30%,black 80%,transparent 100%);}
+.rs-post-hero > *{position:relative;z-index:1;}
+.rs-post-hero .eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rs-lime);}
+.rs-post-hero h1{font-family:var(--font-display);font-weight:800;color:var(--rs-white);font-size:44px;line-height:1.08;letter-spacing:-.01em;margin:16px 0 18px;}
+.rs-post-hero h1 em{color:var(--rs-lime);font-style:italic;font-weight:800;}
+.rs-post-hero .dek{font-size:17px;line-height:1.6;color:var(--rs-mist);max-width:720px;margin:0 0 22px;}
+.rs-byline{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--font-head);font-size:13px;color:var(--rs-dim);}
+.rs-byline .author{color:var(--rs-white);font-weight:700;}
+.rs-byline .sep{color:var(--rs-line-dk);}
+.verified{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rs-lime);margin-top:18px;padding:6px 12px;border:1px solid rgba(197,248,95,0.35);border-radius:999px;}
+.verified::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--rs-lime);box-shadow:0 0 8px var(--rs-lime);}
+
+/* === Featured image === */
+.rs-post-figure{margin:0;border-top:1px solid var(--rs-line-dk);border-bottom:1px solid var(--rs-line-dk);}
+.rs-post-figure img{display:block;width:100%;height:auto;}
+
+/* === Newsletter block === */
+.rs-nl{margin:28px 56px;background:linear-gradient(135deg,rgba(197,248,95,.10) 0%,rgba(197,248,95,.03) 60%),var(--rs-panel);border:1px solid rgba(197,248,95,.35);border-radius:14px;padding:22px 26px;}
+.rs-nl .t{font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--rs-white);}
+.rs-nl .t em{color:var(--rs-lime);font-style:italic;}
+.rs-nl .s{font-size:13px;color:var(--rs-mist);margin-top:5px;}
+.rs-nl-form{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+.rs-nl-form input{flex:1;min-width:200px;background:#0A0A0A;border:1px solid var(--rs-line-dk);border-radius:999px;padding:12px 18px;color:var(--rs-white);font-family:var(--font-body);font-size:13.5px;outline:none;}
+.rs-nl-form input:focus{border-color:rgba(197,248,95,.5);}
+.rs-nl-form button{background:var(--rs-lime);color:#0A0A0A;border:0;border-radius:999px;padding:12px 26px;font-family:var(--font-display);font-weight:800;font-size:12.5px;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;transition:background .15s ease;}
+.rs-nl-form button:hover{background:var(--rs-lime-2);}
+.rs-nl .ok{display:none;font-family:var(--font-head);font-weight:700;font-size:13.5px;color:var(--rs-lime);margin-top:12px;}
+
+/* === Article body === */
+.rs-post-body{padding:36px 56px 8px;max-width:920px;margin:0 auto;}
+/* Tables and images may use the full card width; only running prose is
+   held to a readable measure. */
+.rs-post-body table,.rs-post-body figure,.rs-post-body img{max-width:100%;}
+.rs-post-body h2{font-family:var(--font-display);font-weight:800;color:var(--rs-white);font-size:24px;line-height:1.2;margin:36px 0 6px;}
+.rs-post-body h2:first-child{margin-top:0;}
+.rs-post-body h2 + .heading-rule{display:block;width:48px;height:2px;background:var(--rs-lime);margin:0 0 16px;}
+.rs-post-body h3{font-family:var(--font-display);font-weight:700;color:var(--rs-white);font-size:17px;margin:24px 0 8px;}
+.rs-post-body p{font-size:15.5px;line-height:1.75;margin:0 0 16px;color:var(--rs-mist);}
+.rs-post-body ul{margin:0 0 16px;padding-left:22px;}
+.rs-post-body li{font-size:15.5px;line-height:1.7;margin-bottom:8px;color:var(--rs-mist);}
+/* Added 2026-09-09. The writer rule now REQUIRES a table and a sourced quote in
+   every post; until this there was no rule for either, so they rendered unstyled
+   and a table overflowed the viewport on mobile. display:block + overflow-x is
+   what lets a wide table scroll inside the post instead of pushing the page. */
+.rs-post-body table{display:block;overflow-x:auto;width:100%;border-collapse:collapse;margin:0 0 20px;font-size:14.5px;line-height:1.55;color:var(--rs-mist);}
+.rs-post-body thead th{font-family:var(--font-head);font-weight:700;color:var(--rs-white);text-align:left;padding:10px 12px;border-bottom:2px solid var(--rs-lime);background:var(--rs-panel);white-space:nowrap;}
+.rs-post-body td{padding:10px 12px;border-bottom:1px solid var(--rs-line-dk);vertical-align:top;}
+.rs-post-body tbody tr:hover td{background:rgba(197,248,95,.05);}
+.rs-post-body blockquote{margin:0 0 20px;padding:14px 18px;border-left:3px solid var(--rs-lime);background:var(--rs-panel);color:var(--rs-white);font-size:16px;line-height:1.65;font-style:normal;}
+.rs-post-body blockquote p{margin:0 0 8px;color:var(--rs-white);}
+.rs-post-body blockquote cite,.rs-post-body blockquote footer{display:block;font-style:normal;font-size:13.5px;color:var(--rs-dim);}
+.rs-post-body blockquote a{color:var(--rs-lime);}
+.rs-post-body strong{color:var(--rs-white);}
+.rs-post-body a{text-decoration:underline;text-decoration-color:rgba(197,248,95,.4);text-underline-offset:3px;}
+.rs-callout{border-left:3px solid var(--rs-lime);background:rgba(197,248,95,.06);padding:14px 18px;border-radius:0 8px 8px 0;font-size:14.5px;line-height:1.65;margin:20px 0;}
+.rs-callout strong{color:var(--rs-lime);}
+
+/* KPI band */
+.rs-kpiband{display:flex;gap:0;background:linear-gradient(90deg,#C5F85F 0%,#9FC84E 100%);border-radius:12px;margin:28px 0;padding:22px 10px;justify-content:space-around;flex-wrap:wrap;}
+.rs-kpiband .kpi{text-align:center;min-width:150px;padding:6px 14px;}
+.rs-kpiband .n{font-family:var(--font-display);font-weight:800;font-size:30px;color:#0A0A0A;line-height:1;}
+.rs-kpiband .l{font-family:var(--font-head);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(10,10,10,.72);margin-top:7px;}
+
+.rs-mark-ornament{display:block;height:34px;width:auto;margin:34px auto 0;opacity:.9;}
+
+/* CTA band */
+.rs-ctaband{text-align:center;padding:44px 56px 48px;}
+.rs-ctaband .pre{font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--rs-white);margin-bottom:16px;}
+.rs-ctaband .pre em{color:var(--rs-lime);font-style:italic;}
+.rs-btn{display:inline-block;background:var(--rs-lime);color:#0A0A0A;font-family:var(--font-display);font-weight:800;font-size:14px;letter-spacing:.02em;text-transform:uppercase;padding:14px 30px;border-radius:999px;text-decoration:none;transition:background .15s ease;}
+.rs-btn:hover{background:var(--rs-lime-2);color:#0A0A0A;}
+.rs-ctaband .url{display:block;margin-top:16px;font-family:var(--font-head);font-size:12.5px;color:var(--rs-dim);}
+.rs-foot{padding:16px 56px;border-top:1px solid var(--rs-line-dk);background:var(--rs-ink);font-size:12px;color:var(--rs-dim);text-align:center;}@media (max-width:700px){.rs-topbar,.rs-post-hero,.rs-post-body,.rs-ctaband,.rs-foot{padding-left:24px;padding-right:24px;}
+  .rs-nl{margin-left:24px;margin-right:24px;}
+  .rs-post-hero h1{font-size:32px;}
+  .page{margin:12px;}}
+/* ==== Reach Social site chrome (matches reachsocial.co) ====================
+   A few declarations here look redundant (header padding:0 / border-bottom:0,
+   footer border-top:0, footer-socials margin-left:0, header-inner flex-wrap).
+   They are deliberate RESETS. Hand-built pages such as /partners/ still carry
+   the previous generation of this chrome in their own <style>, and it set
+   those properties on the same class names. Declaring them explicitly lets the
+   standalone snippet be pasted AFTER the legacy CSS and still win, so nobody
+   has to hand-delete the old rules. Do not "tidy" them away.
+   ========================================================================= */
+.rs-site-header,.rs-site-footer{
+  --rs-c-lime:#C0F55B;--rs-c-lime-h:#A8DC45;
+  --rs-c-head:"DM Sans","Poppins",Arial,sans-serif;
+  --rs-c-body:"Poppins","DM Sans",Arial,sans-serif;
+  box-sizing:border-box;
+}
+.rs-site-header *,.rs-site-footer *{box-sizing:border-box;}
+
+/* ---- header -------------------------------------------------------------- */
+.rs-site-header{background:#000000;padding:0;border-bottom:0;}
+.rs-site-topbar{background:#1C1C1C;padding:0 60px;}
+.rs-site-topbar-in{max-width:1280px;margin:0 auto;padding:10px 0;display:flex;
+  align-items:center;gap:16px;}
+.rs-site-topmail,.rs-site-topsocials{flex:1 1 50%;display:flex;align-items:center;gap:14px;}
+.rs-site-topmail a{display:inline-flex;align-items:center;gap:9px;font-family:var(--rs-c-body);
+  font-weight:400;font-size:14px;color:#fff;text-decoration:none;transition:color .15s ease;}
+.rs-site-topmail a:hover{color:var(--rs-c-lime);}
+.rs-site-topmail svg{color:var(--rs-c-lime);flex:none;}
+.rs-site-topsocials a{display:inline-flex;color:#fff;text-decoration:none;
+  transition:color .15s ease;}
+.rs-site-topsocials a:hover{color:var(--rs-c-lime);}
+
+.rs-site-navbar{background:#000000;padding:0 60px;}
+.rs-site-header-inner{max-width:1280px;margin:0 auto;padding:25px 0;display:flex;
+  align-items:center;gap:24px;flex-wrap:nowrap;}
+.rs-site-logo{flex:none;display:block;line-height:0;}
+.rs-site-logo img{height:36px;width:auto;display:block;}
+.rs-site-nav{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin:0 auto;}
+.rs-site-nav a{font-family:var(--rs-c-head);font-weight:500;font-size:18px;line-height:1.1;
+  color:#fff;text-decoration:none;text-transform:capitalize;white-space:nowrap;
+  transition:color .15s ease;}
+.rs-site-nav a:hover,.rs-site-nav a[aria-current="page"]{color:var(--rs-c-lime);}
+.rs-site-cta{flex:none;display:inline-block;background:var(--rs-c-lime);color:#000;
+  font-family:var(--rs-c-body);font-weight:500;font-size:16px;line-height:1;
+  padding:15px 25px;border-radius:20px;text-transform:uppercase;text-decoration:none;
+  white-space:nowrap;transition:background .15s ease;}
+.rs-site-cta:hover{background:var(--rs-c-lime-h);}
+
+/* ---- footer -------------------------------------------------------------- */
+.rs-site-footer{background:#000;padding:20px 60px;color:#fff;border-top:0;}
+.rs-site-footer a{text-decoration:none;}
+/* The panel is FULL-BLEED (only the outer 60px gutter) — its *content* is what
+   sits on the 1280px rail. Matches the live Elementor footer exactly. */
+.rs-site-footer-panel{background:rgba(28,28,28,.56);border:1px solid #1C1C1C;
+  border-radius:20px;padding:0 20px;}
+.rs-site-footer-rail{max-width:1280px;margin:0 auto;padding:50px 0 40px;}
+
+/* subscribe band */
+.rs-sub{display:grid;grid-template-columns:1.45fr .5fr .95fr;align-items:center;gap:26px;}
+.rs-sub h3{font-family:var(--rs-c-head);font-weight:600;font-size:34px;line-height:1.3;
+  color:#fff;margin:0 0 18px;}
+.rs-sub-avatars{display:flex;align-items:center;}
+.rs-sub-avatars img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+  border:2px solid #1C1C1C;margin-right:-10px;display:block;}
+.rs-sub-arrow{text-align:center;}
+.rs-sub-arrow img{width:100%;max-width:150px;height:auto;opacity:.85;display:inline-block;}
+.rs-sub-r p{font-family:var(--rs-c-body);font-weight:400;font-size:16px;line-height:1.5;
+  color:#fff;margin:0 0 14px;}
+.rs-sub-form{position:relative;display:block;max-width:360px;}
+.rs-sub-form input[type=email]{width:100%;background:#1C1C1C;border:1px solid #2A2A2A;
+  border-radius:20px;padding:12px 52px 12px 18px;font-family:var(--rs-c-body);font-weight:400;
+  font-size:16px;color:#fff;outline:none;transition:border-color .15s ease;}
+.rs-sub-form input[type=email]::placeholder{color:rgba(255,255,255,.55);}
+.rs-sub-form input[type=email]:focus{border-color:var(--rs-c-lime);}
+.rs-sub-form button{position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  background:none;border:0;padding:8px;cursor:pointer;color:var(--rs-c-lime);line-height:0;
+  transition:transform .15s ease;}
+.rs-sub-form button:hover{transform:translateY(-50%) translateX(2px);}
+.rs-sub-msg{margin:10px 0 0;font-family:var(--rs-c-body);font-size:14px;min-height:20px;}
+.rs-sub-msg.ok{color:var(--rs-c-lime);}
+.rs-sub-msg.err{color:#FF8A6B;}
+
+.rs-site-footer-rule{border:0;border-top:1px solid rgba(255,255,255,.12);margin:40px 0 36px;}
+
+/* columns */
+.rs-site-footer-cols{display:grid;grid-template-columns:1.6fr 1fr 1.1fr 1fr;gap:36px;}
+.rs-site-footer-cols h4{font-family:var(--rs-c-head);font-weight:600;font-size:24px;
+  line-height:1.3;color:var(--rs-c-lime);margin:0 0 18px;}
+.rs-site-footer-brand img{height:36px;width:auto;display:block;margin-bottom:18px;}
+.rs-site-footer-brand p{font-family:var(--rs-c-body);font-weight:400;font-size:18px;
+  line-height:1.55;color:#fff;margin:0;max-width:28ch;}
+.rs-site-footer-cols ul{list-style:none;margin:0;padding:0;}
+.rs-site-footer-cols li{margin-bottom:13px;}
+.rs-site-footer-cols li a{font-family:var(--rs-c-head);font-weight:400;font-size:18px;
+  line-height:1.2;color:#fff;text-transform:capitalize;transition:color .15s ease;}
+.rs-site-footer-cols li a:hover{color:var(--rs-c-lime);}
+.rs-site-footer-contact a{display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--rs-c-body);font-weight:400;font-size:14px;color:#fff;
+  transition:color .15s ease;}
+.rs-site-footer-contact a:hover{color:var(--rs-c-lime);}
+.rs-site-footer-contact svg{color:var(--rs-c-lime);flex:none;}
+.rs-site-footer-socials{display:flex;gap:18px;align-items:center;margin-left:0;}
+.rs-site-footer-socials a{color:#fff;display:inline-flex;transition:color .15s ease;}
+.rs-site-footer-socials a:hover{color:var(--rs-c-lime);}
+
+.rs-site-footer-bottom{max-width:1280px;margin:0 auto;padding:0 0 34px;text-align:center;
+  font-family:var(--rs-c-body);font-weight:400;font-size:16px;color:rgba(255,255,255,.6);}
+
+/* ---- responsive ---------------------------------------------------------- */
+@media(max-width:1080px){
+  .rs-site-nav{gap:18px;}
+  .rs-site-nav a{font-size:16px;}
+  .rs-site-footer-cols{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:860px){
+  .rs-site-topbar,.rs-site-navbar{padding:0 20px;}
+  .rs-site-header-inner{flex-wrap:wrap;padding:14px 0;}
+  .rs-site-nav{order:3;width:100%;margin:6px 0 0;gap:16px;}
+  .rs-site-cta{margin-left:auto;font-size:14px;padding:12px 20px;}
+  .rs-site-footer{padding:16px 16px;}
+  .rs-site-footer-panel{padding:0 22px;}
+  .rs-site-footer-rail{padding:32px 0 26px;}
+  .rs-site-footer-bottom{padding:0 0 26px;}
+  .rs-sub{grid-template-columns:1fr;gap:22px;}
+  .rs-sub-arrow{display:none;}
+  .rs-sub h3{font-size:26px;}
+  .rs-sub-form{max-width:none;}
+}
+@media(max-width:560px){
+  .rs-site-topbar-in{flex-direction:column;align-items:flex-start;gap:8px;}
+  .rs-site-topmail,.rs-site-topsocials{flex:none;}
+  .rs-site-footer-cols{grid-template-columns:1fr;gap:28px;}
+  .rs-site-footer-brand p,.rs-site-footer-cols li a{font-size:16px;}
+}
+
+/* ---- print: the chrome never appears in the PDF -------------------------- */
+@media print{.rs-site-header,.rs-site-footer{display:none !important;}}
+
+
+/* The in-card copyright strip duplicates the site footer directly below it. */
+.rs-foot { display: none !important; }
+
+/* ---- Services mega-menu. Mirrors the apex header: an intro panel, then three
+   grouped columns with a ruled heading each. ---- */
+.rs-site-navbar{position:relative;}
+.rs-mm{position:relative;display:inline-flex;}
+.rs-mm-trigger{display:inline-flex;align-items:center;gap:6px;}
+.rs-mm-trigger svg{opacity:.65;transition:transform .18s ease,opacity .18s ease;}
+.rs-mm.is-open .rs-mm-trigger svg{transform:rotate(180deg);opacity:1;}
+.rs-mm.is-open .rs-mm-trigger{color:var(--rs-c-lime);}
+.rs-mm-panel{position:absolute;left:0;right:0;top:100%;z-index:9999;background:#0B0B0D;
+  border-top:1px solid rgba(192,245,91,.30);border-bottom:1px solid rgba(255,255,255,.08);
+  box-shadow:0 30px 70px rgba(0,0,0,.65);opacity:0;visibility:hidden;transform:translateY(-8px);
+  pointer-events:none;transition:opacity .16s ease,transform .16s ease,visibility .16s;}
+.rs-mm-panel.is-open{opacity:1;visibility:visible;transform:none;pointer-events:auto;}
+.rs-mm-panel-in{max-width:1280px;margin:0 auto;padding:40px 0 44px;display:grid;
+  grid-template-columns:1.22fr 1fr 1fr 1fr;gap:16px 46px;align-items:start;}
+.rs-mm-intro{padding-right:26px;}
+.rs-mm-intro h2{font-family:var(--rs-c-head);font-weight:800;font-size:33px;line-height:1.04;
+  letter-spacing:-.025em;text-transform:uppercase;color:#fff;margin:0 0 16px;}
+.rs-mm-intro p{font-family:var(--rs-c-body);font-size:14.5px;line-height:1.62;color:#B8B8BC;margin:0 0 20px;}
+.rs-mm-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-family:var(--rs-c-head);font-weight:700;font-size:15px;color:var(--rs-c-lime);}
+.rs-mm-link span{display:inline-block;transition:transform .16s ease;}
+.rs-mm-link:hover span{transform:translateX(4px);}
+.rs-mm-h{font-family:var(--rs-c-head);font-weight:700;font-size:11px;letter-spacing:.17em;
+  text-transform:uppercase;color:#8A8F98;margin:0 0 12px;padding-bottom:12px;
+  border-bottom:1px solid rgba(255,255,255,.11);}
+.rs-mm-col ul{list-style:none;margin:0;padding:0;}
+.rs-mm-col li{margin:0 0 2px;}
+.rs-mm-col li a{display:block;text-decoration:none;padding:9px 12px;margin-left:-12px;
+  border-radius:9px;transition:background .15s ease;}
+.rs-mm-col li a:hover{background:rgba(192,245,91,.07);}
+.rs-mm-t{display:block;font-family:var(--rs-c-head);font-weight:600;font-size:16px;
+  line-height:1.3;color:#fff;}
+.rs-mm-col li a:hover .rs-mm-t{color:var(--rs-c-lime);}
+.rs-mm-d{display:block;font-family:var(--rs-c-body);font-size:13.5px;line-height:1.45;
+  color:#8A8F98;margin-top:2px;}
+@media (max-width:1100px){
+  .rs-mm-panel-in{grid-template-columns:1fr 1fr 1fr;gap:14px 30px;}
+  .rs-mm-intro{grid-column:1 / -1;padding-right:0;max-width:640px;margin-bottom:10px;}
+  .rs-mm-intro h2{font-size:27px;}
+}
+@media (max-width:900px){
+  .rs-mm-panel{position:static;opacity:1;visibility:visible;transform:none;pointer-events:auto;
+    display:none;box-shadow:none;border-bottom:0;}
+  .rs-mm-panel.is-open{display:block;}
+  .rs-mm-panel-in{grid-template-columns:1fr;padding:18px 0 10px;gap:0;}
+  .rs-mm-intro{margin-bottom:20px;} .rs-mm-h{margin-top:16px;}
+}
+</style>
+</head>
+<body>
+
+<header class="rs-site-header" role="banner">
+  <div class="rs-site-navbar"><div class="rs-site-header-inner">
+    <a class="rs-site-logo" href="https://reachsocial.co/" aria-label="Reach Social home">
+      <img src="https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png" alt="Reach Social" width="164" height="36">
+    </a>
+    <nav class="rs-site-nav" aria-label="Primary"><a href="https://reachsocial.co/">Home</a><a href="https://reachsocial.co/#about">About</a><span class="rs-mm" id="rs-mm"><a class="rs-mm-trigger" href="https://reachsocial.co/social-commerce-agency/" aria-expanded="false" aria-controls="rs-mm-panel">Services<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a></span><a href="https://reachsocial.co/blog/" aria-current="page">Blog</a><a href="https://reachsocial.co/casestudies/">Case Studies</a><a href="https://reachsocial.co/#contact">Contact</a></nav>
+    <a class="rs-site-cta" href="https://meetings.hubspot.com/reach-social/intro-call?utm_source=blog&utm_medium=cta&utm_campaign=tiktok-shop-fee-calculator">Book a strategy call</a>
+  </div>
+  <div class="rs-mm-panel" id="rs-mm-panel" role="region" aria-label="Services"><div class="rs-mm-panel-in"><div class="rs-mm-intro"><h2>One channel,<br>one number.</h2><p>Creators, affiliates, paid and the shop operations underneath run off one roster and one monthly number. The creator who sold the unit and the campaign that amplified it are never two different contracts.</p><a class="rs-mm-link" href="https://reachsocial.co/casestudies/">See the published case studies <span>&rarr;</span></a></div><div class="rs-mm-col"><p class="rs-mm-h">Open the channel</p><ul><li><a href="https://reachsocial.co/services/tiktok-shop-setup/"><span class="rs-mm-t">TikTok Shop Setup &amp; Launch</span><span class="rs-mm-d">Live in two to four weeks</span></a></li><li><a href="https://reachsocial.co/services/tiktok-shop-consulting/"><span class="rs-mm-t">TikTok Shop Consulting</span><span class="rs-mm-d">A fixed-scope read before you commit</span></a></li></ul></div><div class="rs-mm-col"><p class="rs-mm-h">Create the demand</p><ul><li><a href="https://reachsocial.co/services/ugc-creator-management/"><span class="rs-mm-t">UGC &amp; Creator Management</span><span class="rs-mm-d">Who gets sampled, who gets a retainer</span></a></li><li><a href="https://reachsocial.co/services/tiktok-shop-affiliate-management/"><span class="rs-mm-t">Affiliate Management</span><span class="rs-mm-d">The roster that sells for you</span></a></li><li><a href="https://reachsocial.co/services/tiktok-live-shopping/"><span class="rs-mm-t">Live Shopping</span><span class="rs-mm-d">What an hour of Live actually earns</span></a></li></ul></div><div class="rs-mm-col"><p class="rs-mm-h">Run and defend it</p><ul><li><a href="https://reachsocial.co/services/tiktok-shop-management/"><span class="rs-mm-t">TikTok Shop Management</span><span class="rs-mm-d">One team, the whole shop</span></a></li><li><a href="https://reachsocial.co/services/tiktok-ads-management/"><span class="rs-mm-t">TikTok Ads Management</span><span class="rs-mm-d">Paid behind what already converts</span></a></li><li><a href="https://reachsocial.co/services/tiktok-shop-account-health/"><span class="rs-mm-t">Account Health &amp; Appeals</span><span class="rs-mm-d">Keep selling through enforcement</span></a></li></ul></div></div></div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="rs-topbar">
+    <span class="crumb"><a href="https://reachsocial.co/blog/">&larr; All posts</a></span>
+    <span class="tag">Blog</span>
+  </div>
+
+  <header class="rs-post-hero">
+    <div class="eyebrow">Reach Social &middot; Platform Economics</div>
+    <h1>TikTok Shop Fee Calculator: <em>The Per-Order Math Brands Actually Run</em></h1>
+    <p class="dek">The referral fee is the smallest line on the page. Here is the per-order contribution margin at three price points, with affiliate commission and GMV Max ad cost in the stack, and the two levers that move it most.</p>
+    <div class="rs-byline">
+      <span class="author">Jackie He</span>
+      <span class="sep">|</span>
+      <time datetime="2026-10-27">October 27, 2026</time>
+      <span class="sep">|</span>
+      <span>6 min read</span>
+    </div>
+    <br>
+    <span class="verified">Verified TikTok Shop Partner</span>
+  </header>
+
+
+  <!-- Newsletter — placeholder form. TODO: set data-endpoint to the provider's form action when wired. -->
+  <section class="rs-nl" aria-label="Newsletter signup">
+    <div class="t">The TikTok Shop <em>operator brief.</em></div>
+    <div class="s">One playbook a week from the team behind $50M+ GMV. Real numbers, no fluff.</div>
+    <form class="rs-nl-form" data-endpoint="https://amzadvisers.app.n8n.cloud/webhook/reachsocial-newsletter" novalidate>
+      <input type="email" name="email" placeholder="Your work email" aria-label="Email address" required>
+      <input type="hidden" name="form_name" value="reach-blog">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="ok">You're in. Watch your inbox.</div>
+  </section>
+
+  <article class="rs-post-body">
+
+    <h2>TL;DR</h2>
+    <ul>
+        <li>TikTok's referral fee is 6% on most US categories. On a $60 order that is $3.60, the smallest line in the stack.</li>
+        <li>In our worked model, contribution margin lands at 17.3% on a $30 order, 23.2% on $60 and 25.7% on $120, after referral fee, affiliate commission, GMV Max cost, product cost and fulfillment.</li>
+        <li>Fixed fulfillment cost is what punishes low AOV. The same $5 pick-and-pack is 16.7% of a $30 order and 8.3% of a $120 one.</li>
+        <li>Affiliate rate and ad return move margin by 5 to 10 points or more. The platform fee never moves it.</li>
+        <li>Every rate except the 6% is an illustrative assumption. Swap in your own before you decide anything.</li>
+    </ul>
+    <span class="heading-rule"></span>
+
+    <h2>The TikTok Shop fee calculator we actually run</h2>
+    <span class="heading-rule"></span>
+    <p>When a brand asks us <strong>how much it costs to sell on TikTok Shop</strong>, we do not answer with a fee percentage. We open a spreadsheet, build one order from the top, and see what is left. That left-over number, contribution margin per order, decides whether scaling spend on TikTok Shop is a good idea.</p>
+    <p>This post is that spreadsheet, written out. We covered the platform's published charges in <a href="https://reachsocial.co/blog/tiktok-shop-seller-fees/">TikTok Shop seller fees: what they actually cost at scale</a>, so we will not restate the fee schedule here. This is the next step: put the fees next to affiliate commission, GMV Max cost, product cost and fulfillment, and see what a brand keeps.</p>
+
+    <h2>The inputs, and where each one comes from</h2>
+    <span class="heading-rule"></span>
+    <p>One input is sourced. Everything else is an assumption we chose so the example is readable, and you should replace it.</p>
+    <ul>
+        <li><strong>Referral fee: 6% (sourced).</strong> TikTok Shop's <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=5982454398175018&amp;lang=en" rel="noopener">referral fee page on TikTok Shop Seller University</a> sets 6% for most US categories, calculated as the rate times (customer payment plus platform discount minus tax). Some categories, such as select jewelry, differ, and TikTok can change the rate, so check Seller Center for yours.</li>
+        <li><strong>Affiliate commission: 15% of order value (illustrative).</strong> You set this per product and creator tier. It is not a TikTok fee.</li>
+        <li><strong>GMV Max cost: 20% of order value (illustrative).</strong> That is a 5.0 return on ad spend, applied to every order in the table. In practice only ad-attributed orders carry it, so read it as a fully paid-for order.</li>
+        <li><strong>Product cost: 25% of price (illustrative).</strong></li>
+        <li><strong>Fulfillment: $5.00, $6.50 and $10.00 per order (illustrative),</strong> rising with weight and pack size. Free shipping to the customer is assumed.</li>
+    </ul>
+    <p>Returns, refund administration fees, sample costs and any payment processing charge visible in your own settlement report are excluded to keep the table readable. Add them if they apply to you.</p>
+
+    <h2>Per-order contribution margin at $30, $60 and $120</h2>
+    <span class="heading-rule"></span>
+    <table>
+        <thead>
+            <tr><th>Per order</th><th>$30 AOV</th><th>$60 AOV</th><th>$120 AOV</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Referral fee (6%)</td><td>$1.80</td><td>$3.60</td><td>$7.20</td></tr>
+            <tr><td>Affiliate commission (15%)</td><td>$4.50</td><td>$9.00</td><td>$18.00</td></tr>
+            <tr><td>GMV Max cost (20%)</td><td>$6.00</td><td>$12.00</td><td>$24.00</td></tr>
+            <tr><td>Product cost (25%)</td><td>$7.50</td><td>$15.00</td><td>$30.00</td></tr>
+            <tr><td>Fulfillment</td><td>$5.00</td><td>$6.50</td><td>$10.00</td></tr>
+            <tr><td><strong>Contribution per order</strong></td><td><strong>$5.20</strong></td><td><strong>$13.90</strong></td><td><strong>$30.80</strong></td></tr>
+            <tr><td><strong>Contribution margin</strong></td><td><strong>17.3%</strong></td><td><strong>23.2%</strong></td><td><strong>25.7%</strong></td></tr>
+            <tr><td>Margin if the order needed no ad spend</td><td>37.3%</td><td>43.2%</td><td>45.7%</td></tr>
+        </tbody>
+    </table>
+    <p>Three things stand out.</p>
+    <p>The platform fee is 6.0% of every order, and the creator and ad lines together are 35%. TikTok is not the expensive part of TikTok Shop.</p>
+    <p>Low AOV is where the model gets thin. At $30, fulfillment alone eats 16.7% of the order. Before you cut affiliate rate, look at whether you can raise the basket. <a href="https://reachsocial.co/casestudies/bundle-aov-lift-wellness-supplements/">A wellness supplements brand we work with lifted AOV through bundling, without leaning on discounts</a>, and the same dollar costs take a smaller share of a bigger basket.</p>
+    <p>The last row matters more than it looks. An organic, non-ad order earns 20 points more in this model. That is why we treat ads as a way to buy reach on a product that already converts, not as the engine of the whole shop.</p>
+
+    <div class="rs-callout"><strong>Operator note &mdash;</strong> Run this per SKU, not per shop. A hero product at $60 with a 25% product cost and a bundle at $120 with a 35% product cost have very different margins, and a blended number hides both. The shop-level figure is only useful once the SKU rows are right.</div>
+
+    <h2>What moves TikTok Shop profit margin most</h2>
+    <span class="heading-rule"></span>
+    <p>Hold the $60 order and vary the two levers a brand controls. Margin is contribution margin after every line above.</p>
+    <table>
+        <thead>
+            <tr><th>$60 AOV</th><th>Ad return 3.0</th><th>Ad return 5.0</th><th>Ad return 8.0</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Affiliate commission 10%</td><td>14.8%</td><td>28.2%</td><td>35.7%</td></tr>
+            <tr><td>Affiliate commission 15%</td><td>9.8%</td><td>23.2%</td><td>30.7%</td></tr>
+            <tr><td>Affiliate commission 20%</td><td>4.8%</td><td>18.2%</td><td>25.7%</td></tr>
+        </tbody>
+    </table>
+    <p>Every five points of commission is five points of margin. Dropping from a 5.0 to a 3.0 return costs 13.4 points. Neither is something TikTok charges you. Both are decisions.</p>
+    <p>That is why the commission structure deserves the attention most brands give the fee schedule. <a href="https://reachsocial.co/casestudies/negotiated-retainer-flip-health-wellness/">One health and wellness brand turned a single creator retainer into a 600% return</a> by the three-week mark, through the rate negotiated before the deal started. And the affiliate side runs at a scale where small rate changes compound. Mike Begg of AMZ Advisers, our parent company, puts it this way:</p>
+    <blockquote>
+        <p>Our best-performing brands are managing 200-500 active affiliates at any given time.</p>
+        <p><cite>Mike Begg, co-founder and CEO of AMZ Advisers, in <a href="https://mikebegg.me/blog/why-tiktok-shop-is-the-biggest-ecommerce-opportunity-right-now">Why TikTok Shop Is the Biggest E-commerce Opportunity</a></cite></p>
+    </blockquote>
+    <p>At that count, a two-point change in blended commission is not a rounding error. It is the difference between a month that funds the next one and a month that does not.</p>
+
+    <h2>Using the model to set an ad budget</h2>
+    <span class="heading-rule"></span>
+    <p>The model also gives you a break-even return. At $60 with a 15% commission, the order breaks even on contribution when ad cost reaches 43.2% of order value, a return of about 2.3. Below that, GMV Max is losing money on that product. Above it, you are buying profitable orders. Our walkthrough of <a href="https://reachsocial.co/blog/gmv-max-how-to-set-up/">how to set up GMV Max</a> covers the budget and ROI target side. <a href="https://reachsocial.co/casestudies/controlled-ad-scale-food-bev/">A food and beverage brand we work with scaled its daily ad budget up 125% in roughly ten days</a>, and it could do that because the unit economics were already known.</p>
+    <p>If you want to skip the spreadsheet, the interactive calculator in our <a href="https://reachsocial.co/blog/tiktok-shop-seller-fees/">seller fees post</a> runs the same single-order math with your own inputs.</p>
+
+    <p>The platform fee is the one number everyone quotes and nobody can change. The two you can change are the ones that decide the margin, and they are worth modeling before the first dollar of spend.</p>
+
+    <img class="rs-mark-ornament" src="/blog/assets/rs-mark.svg" alt="">
+  </article>
+
+  <div class="rs-ctaband">
+    <div class="pre">Run this math on <em>your own catalog.</em></div>
+    <a class="rs-btn" href="https://meetings.hubspot.com/reach-social/intro-call?utm_source=blog&utm_medium=cta&utm_campaign=tiktok-shop-fee-calculator">Book a strategy call &rarr;</a>
+  </div>
+
+  <div class="rs-foot">
+    &copy; 2026 Reach Social. Real client results; brand details anonymized where required.
+  </div>
+
+</div>
+
+<footer class="rs-site-footer" role="contentinfo">
+  <div class="rs-site-footer-panel">
+   <div class="rs-site-footer-rail">
+
+    <div class="rs-sub">
+      <div class="rs-sub-l">
+        <h3>Subscribe now to FOR updates<br>and exclusive offers!</h3>
+        <div class="rs-sub-avatars"><img src="https://reachsocial.co/wp-content/uploads/2025/11/40306.jpg" alt="" loading="lazy" width="40" height="40"><img src="https://reachsocial.co/wp-content/uploads/2025/11/2261.jpg" alt="" loading="lazy" width="40" height="40"><img src="https://reachsocial.co/wp-content/uploads/2025/11/2149022627.jpg" alt="" loading="lazy" width="40" height="40"><img src="https://reachsocial.co/wp-content/uploads/2025/11/2148131700.jpg" alt="" loading="lazy" width="40" height="40"></div>
+      </div>
+      <div class="rs-sub-arrow"><img src="https://reachsocial.co/wp-content/uploads/2025/11/footer-arrow.png" alt="" loading="lazy"></div>
+      <div class="rs-sub-r">
+        <p>Feel free to reach out if you want to collaborate with us, or simply chat.</p>
+        <form class="rs-sub-form" id="rs-sub-form" novalidate>
+          <label class="rs-sr-only" for="rs-sub-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Your email</label>
+          <input id="rs-sub-email" name="email" type="email" placeholder="Your Email" required autocomplete="email">
+          <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 512 512" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3.2 300.7 0 288.9s6.1-22.6 16.5-28.3l448-243.9c10.7-5.8 23.7-5.2 33.7 1.6z"/></svg></button>
+        </form>
+        <p class="rs-sub-msg" id="rs-sub-msg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <hr class="rs-site-footer-rule">
+
+    <div class="rs-site-footer-cols">
+      <div class="rs-site-footer-brand">
+        <a href="https://reachsocial.co/"><img src="https://reachsocial.co/wp-content/uploads/2025/11/ReachSocial-alldeck-v3-02.png" alt="Reach Social" width="164" height="36"></a>
+        <p>We build a predictable engine across affiliates, shop operations, and paid ads—so your brand sells where your customers are already scrolling.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="https://reachsocial.co/">Home</a></li><li><a href="https://reachsocial.co/#about">About</a></li><li><a href="https://reachsocial.co/social-commerce-agency/">Services</a></li><li><a href="https://reachsocial.co/blog/">Blog</a></li><li><a href="https://reachsocial.co/casestudies/">Case Studies</a></li><li><a href="https://reachsocial.co/partners/">Referral Partner Program</a></li><li><a href="https://reachsocial.co/#contact">Contact</a></li></ul>
+      </div>
+      <div class="rs-site-footer-contact">
+        <h4>Contact</h4>
+        <a href="mailto:hello@reachsocial.co"><svg viewBox="0 0 512 512" width="15" height="15" fill="currentColor" aria-hidden="true" focusable="false"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg><span>hello@reachsocial.co</span></a>
+      </div>
+      <div>
+        <h4>Follow Us On</h4>
+        <div class="rs-site-footer-socials"><a href="https://www.facebook.com/reachsocial" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 320 512" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a><a href="https://twitter.com/reachsocial" aria-label="Twitter" rel="noopener"><svg viewBox="0 0 512 512" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a><a href="https://www.youtube.com/@reachsocial" aria-label="YouTube" rel="noopener"><svg viewBox="0 0 576 512" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305z"/></svg></a></div>
+      </div>
+    </div>
+
+   </div>
+   <div class="rs-site-footer-bottom">Copyright &copy; 2026 ReachSocial. All right reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('rs-sub-form');
+  if(!f) return;
+  var msg=document.getElementById('rs-sub-msg');
+  var input=document.getElementById('rs-sub-email');
+  function say(t,cls){ msg.textContent=t; msg.className='rs-sub-msg '+(cls||''); }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=(input.value||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ say('Enter a valid email address.','err'); return; }
+    say('Subscribing\u2026','');
+    var body=new URLSearchParams({
+      email:email,
+      source:'blog',
+      page:location.pathname
+    }).toString();
+    fetch('https://amzadvisers.app.n8n.cloud/webhook/reachsocial-newsletter',{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body:body,
+      mode:'cors',
+      keepalive:true
+    }).then(function(){ done(); }).catch(function(){ done(); });
+    function done(){ f.reset(); say('Thanks \u2014 you\u2019re on the list.','ok'); }
+  });
+})();
+</script>
+
+<script>
+// Newsletter placeholder: no endpoint wired yet. Until data-endpoint is set,
+// fall back to a prefilled email to hello@reachsocial.co so no signup is lost.
+document.querySelectorAll("form[data-endpoint]").forEach(function (f) {
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = f.querySelector('input[type="email"]').value.trim();
+    if (!email || email.indexOf("@") < 0) return;
+    var endpoint = f.getAttribute("data-endpoint");
+    if (endpoint) {
+      var data = new FormData(f);
+      fetch(endpoint, { method: "POST", body: data, mode: "no-cors" }).finally(function () {
+        var ok = f.parentElement.querySelector(".ok");
+        if (ok) { ok.style.display = "block"; }
+        f.style.display = "none";
+      });
+    } else {
+      window.location.href = "mailto:hello@reachsocial.co?subject=" +
+        encodeURIComponent("Subscribe me to the Reach Social blog") +
+        "&body=" + encodeURIComponent("Please add " + email + " to the newsletter list.");
+    }
+  });
+});
+</script>
+
+<script>
+(function(){
+  var mm=document.getElementById('rs-mm'),panel=document.getElementById('rs-mm-panel');
+  if(!mm||!panel) return;
+  var trig=mm.querySelector('.rs-mm-trigger'),t,MOBILE=900;
+  function open(){ if(innerWidth<=MOBILE) return; clearTimeout(t);
+    panel.classList.add('is-open'); mm.classList.add('is-open');
+    trig.setAttribute('aria-expanded','true'); }
+  function close(){ t=setTimeout(function(){ panel.classList.remove('is-open');
+    mm.classList.remove('is-open'); trig.setAttribute('aria-expanded','false'); },140); }
+  mm.addEventListener('mouseenter',open); mm.addEventListener('mouseleave',close);
+  panel.addEventListener('mouseenter',function(){clearTimeout(t);});
+  panel.addEventListener('mouseleave',close);
+  trig.addEventListener('focus',open);
+  document.addEventListener('keyup',function(e){ if(e.key==='Escape') close(); });
+  trig.addEventListener('click',function(e){ if(innerWidth<=MOBILE){ e.preventDefault();
+    var o=panel.classList.toggle('is-open'); mm.classList.toggle('is-open',o);
+    trig.setAttribute('aria-expanded',o); } });
+})();
+</script>
+</body>
+</html>
