@@ -1,0 +1,140 @@
+    <p>To connect Shopify to TikTok Shop, you install the TikTok sales channel from the Shopify App Store, link it to your Seller Center account, and the two platforms start syncing catalog, inventory, fulfillment and orders. That part takes an afternoon. This post is about the part that takes longer: deciding which system owns inventory, which system owns the order, and what you test before a creator video or a LIVE session sends real volume through the connection.</p>
+    <p>We write this for brands that already ship real order volume on other channels and are adding TikTok Shop to an existing stack. It is not a click-by-click setup walkthrough, and we are not naming third-party apps or quoting their fees. Where Shopify's own documentation is silent, we say so and tell you what to test instead.</p>
+
+    <h2>TL;DR</h2>
+    <ul>
+        <li>Yes, you can link Shopify to TikTok Shop. Shopify's official TikTok channel syncs catalog, inventory, fulfillment and orders between the two.</li>
+        <li>Refunds, returns and cancellations are completed in TikTok Seller Center, not Shopify, so someone on your team needs to own that queue.</li>
+        <li>Shopify only creates a TikTok order if stock is available there, so Shopify's inventory number gates every sale. Make sure it is the real number.</li>
+        <li>With a 3PL, pick one system of record for stock and make everything else mirror it. Two systems both editing inventory is how you oversell.</li>
+        <li>Test bundles, sample SKUs and a full order lifecycle with real orders before you turn creators on.</li>
+    </ul>
+
+    <h2>What the Shopify and TikTok Shop connection syncs</h2>
+    <span class="heading-rule"></span>
+    <p>Per <a href="https://help.shopify.com/en/manual/online-sales-channels/tiktok/setup" target="_blank" rel="noopener">Shopify's setup documentation</a>, the TikTok channel lets you "sync catalog, inventory, fulfillment, and orders between Shopify and TikTok Shop." Shopify's <a href="https://help.shopify.com/en/manual/online-sales-channels/tiktok/orders" target="_blank" rel="noopener">order management page</a> adds the mechanics that matter for operators: when a customer buys on TikTok Shop, TikTok checks with Shopify, the order appears on your Shopify Orders page with the TikTok order ID, and you fulfill it there. If inventory is not available in Shopify, the order is not created.</p>
+    <p>That last rule is the one to build your process around. <strong>Shopify's inventory count is the gate on every TikTok sale.</strong> If the number is wrong in either direction, you either block orders you could have filled or accept orders you cannot.</p>
+    <p>Shopify's documentation also sets prerequisites worth checking before you plan a launch date: your store location has to be in a supported country, you need an online store and a TikTok for Business account, and products must meet TikTok's prohibited-products guidelines for your region. The catalog sync also needs a valid warehouse address and phone number on your Shopify location, so a location set up for a 3PL needs to carry those details. Eligibility lists change, so read the current Shopify page and not this one.</p>
+
+    <h2>What the integration does not do for you</h2>
+    <span class="heading-rule"></span>
+    <p>Some gaps are documented. Others are simply not covered, and "not covered" is not the same as "handled." We would rather separate the two than guess.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Area</th>
+                <th>What we can verify</th>
+                <th>What you own</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Refunds</strong></td>
+                <td>Shopify says refunds are completed in TikTok Seller Center</td>
+                <td>Assign a person to the Seller Center refund queue, and reconcile it to your Shopify financials</td>
+            </tr>
+            <tr>
+                <td><strong>Returns</strong></td>
+                <td>Shopify says returns are completed in TikTok Seller Center</td>
+                <td>A route from Seller Center to your warehouse or 3PL so the unit is received and restocked</td>
+            </tr>
+            <tr>
+                <td><strong>Cancellations</strong></td>
+                <td>Shopify says cancellations are completed in TikTok Seller Center</td>
+                <td>A rule for canceling before dispatch, so a canceled order does not ship</td>
+            </tr>
+            <tr>
+                <td><strong>Bundles and multipacks</strong></td>
+                <td>Not covered in Shopify's TikTok documentation</td>
+                <td>Test how each bundle SKU deducts component inventory before you promote it</td>
+            </tr>
+            <tr>
+                <td><strong>Pricing and promotions</strong></td>
+                <td>Not covered in Shopify's TikTok documentation</td>
+                <td>Confirm which platform's price and discount rules apply to a TikTok order, and check them against margin</td>
+            </tr>
+            <tr>
+                <td><strong>Affiliate sample orders</strong></td>
+                <td>Not covered in Shopify's TikTok documentation</td>
+                <td>A defined path for sample requests, separate from paid orders</td>
+            </tr>
+            <tr>
+                <td><strong>Multi-location inventory</strong></td>
+                <td>Not covered in Shopify's TikTok documentation</td>
+                <td>Confirm which locations feed TikTok availability, and test it</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Treat every "not covered" row as a test case. The cheapest time to discover how a bundle deducts stock is before the product is in a creator's video, not after.</p>
+    <p>On bundles specifically: when we ran a bundle-led offer for <a href="https://reachsocial.co/casestudies/bundle-aov-lift-wellness-supplements/">a wellness and supplements brand, TikTok Shop AOV rose from $35.93 to $40.07, an 11.52% lift</a>. Every one of those bundles was a SKU that had to deduct inventory correctly somewhere. A bundle strategy is an inventory-mapping project as much as a merchandising one.</p>
+
+    <h2>Who owns the order, and why duplicates happen</h2>
+    <span class="heading-rule"></span>
+    <p>On the Shopify channel, the order lives in two places: Seller Center for the TikTok side, and your Shopify Orders page for fulfillment. The ownership split we use is simple.</p>
+    <ul>
+        <li><strong>TikTok Seller Center owns the customer-facing lifecycle:</strong> refunds, returns, cancellations and the platform's own order status and account-health clock.</li>
+        <li><strong>Shopify owns fulfillment and inventory:</strong> it is where the order is picked, packed and shipped, and where stock is decremented.</li>
+        <li><strong>One person owns reconciliation.</strong> Someone compares the two each day. Without a named owner, nobody does.</li>
+    </ul>
+    <p>Duplicate-order risk comes from putting a second system in the middle without deciding who is in charge. The way it happens is a connection from Shopify to the TikTok channel plus a separate connection from TikTok Shop to a warehouse system or an order-management tool, each pulling the same order. Both create a fulfillment request, and the customer gets two parcels or a warehouse ships against a canceled order. The fix is architectural, not procedural: <strong>one path for an order to reach the warehouse, and one system that writes tracking back.</strong></p>
+    <p>That tracking write-back matters because TikTok runs a clock. As we cover in <a href="https://reachsocial.co/blog/how-to-choose-a-3pl-for-tiktok-shop/">our guide to choosing a 3PL for TikTok Shop</a>, an order has to reach In Transit within 2 business days under TikTok's fulfillment policy, and late dispatch lands on your shop's account health regardless of who missed it.</p>
+
+    <div class="rs-callout"><strong>Operator note &mdash;</strong> Before launch, place a real order for a low-cost SKU and follow it end to end: Seller Center, Shopify Orders, the warehouse, the tracking number back on the order. Then refund one and return one. Find out which screen each step lives on while the stakes are low.</div>
+
+    <h2>Inventory source of truth when a 3PL is involved</h2>
+    <span class="heading-rule"></span>
+    <p>Because Shopify's stock level decides whether a TikTok order is created, the question becomes where Shopify's number comes from. There are three common setups, and we recommend choosing deliberately.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Setup</th>
+                <th>System of record for stock</th>
+                <th>Where it breaks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Self-ship from your own stock</strong></td>
+                <td>Shopify</td>
+                <td>Manual adjustments made in more than one place; receiving done late</td>
+            </tr>
+            <tr>
+                <td><strong>3PL ships from its warehouse</strong></td>
+                <td>The 3PL's warehouse system, mirrored into Shopify</td>
+                <td>Sync lag between a pick and the Shopify count, which oversells during a spike</td>
+            </tr>
+            <tr>
+                <td><strong>Fulfilled by TikTok (FBT)</strong></td>
+                <td>Stock inside TikTok's fulfillment network, separate from your other pool</td>
+                <td>Splitting one inventory pool across channels without a sell-through plan</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>With a 3PL, the warehouse count is physical reality. Shopify should mirror it, and nobody should hand-edit Shopify's number to "fix" a discrepancy, because the next sync will overwrite it or, worse, compound it. Ask your provider how often counts push to Shopify and what happens during a surge. Our <a href="https://reachsocial.co/blog/how-to-choose-a-3pl-for-tiktok-shop/">3PL selection checklist</a> covers order sync and surge capacity in detail, and the fulfillment model decision itself is laid out in <a href="https://reachsocial.co/blog/fulfilled-by-tiktok-vs-3pl-vs-self-ship/">Fulfilled by TikTok vs 3PL vs self-ship</a>.</p>
+    <p>One buffer decision belongs here: how much safety stock you hold back from TikTok availability. Spikes on this platform come from creator videos, LIVE sessions and GMV Max budget changes, and a flat Shopify count can drain fast. The budget side is covered in <a href="https://reachsocial.co/blog/what-is-gmv-max-tiktok-shop/">what GMV Max is and how it works</a>. The inventory side is yours to hold back.</p>
+
+    <blockquote>
+        <p>"We manage 85+ Amazon accounts and have launched 50+ brands on TikTok Shop."</p>
+        <cite>Mike Begg, co-founder and CEO of AMZ Advisers, in <a href="https://mikebegg.me/blog/tiktok-shop-vs-amazon">TikTok Shop vs Amazon 2026: Pick Yours in 30 Seconds</a>.</cite>
+    </blockquote>
+    <p>Our view from those launches: the connection is the easy part. The expensive mistake is leaving the question of who owns the number unanswered until the first spike.</p>
+
+    <h2>TikTok Shop vs Shopify: you run both</h2>
+    <span class="heading-rule"></span>
+    <p>Searchers who type "TikTok Shop vs Shopify" are usually asking which one to pick. For a brand with an existing store, the answer is both. Shopify stays your system of record for catalog, your own site and fulfillment. TikTok Shop is a sales channel with its own storefront, its own checkout, its own creator and affiliate engine, and its own enforcement rules. Connecting them gives you one place to fulfill. It does not turn them into one business, and the account-health metrics that protect your TikTok Shop sit on the TikTok side.</p>
+    <p>The money side lives in a different post. The platform referral fee, affiliate commission and ad cost stack up per order, and our <a href="https://reachsocial.co/blog/tiktok-shop-fee-calculator/">TikTok Shop fee calculator walkthrough</a> runs that math so you can see what a TikTok order earns before you put budget behind it.</p>
+
+    <h2>A pre-launch test plan</h2>
+    <span class="heading-rule"></span>
+    <p>Run these before you recruit affiliates or raise ad budget. None of it needs a vendor, just a few real orders.</p>
+    <ol>
+        <li><strong>Confirm the basics.</strong> Store location, warehouse address and phone, return policy page, and product eligibility are all in place per Shopify's current setup page.</li>
+        <li><strong>Reconcile the catalog.</strong> Every TikTok listing maps to the right Shopify product and variant. Check variants one by one on your top sellers.</li>
+        <li><strong>Check the stock gate.</strong> Set a test SKU to zero in Shopify and confirm what a TikTok buyer sees and that no phantom order appears.</li>
+        <li><strong>Walk a full order.</strong> Place, fulfill, and confirm tracking appears on the TikTok order.</li>
+        <li><strong>Walk the exceptions.</strong> Cancel one order before dispatch, and refund and return another in Seller Center. Confirm what reaches your warehouse and your books.</li>
+        <li><strong>Test every bundle and sample SKU.</strong> Verify component stock deducts the way you expect.</li>
+        <li><strong>Set the daily check.</strong> One named person compares Seller Center orders, Shopify orders and warehouse shipments each morning for the first weeks.</li>
+    </ol>
+    <p>Sample handling is easy to forget. A seeding program that works, like <a href="https://reachsocial.co/casestudies/affiliate-sampling-refinement-baby-maternity/">the baby and maternity brand that broke two flat months and reached $150K+ in June GMV</a>, sends product to creators constantly. Every sample is inventory leaving the building, and it needs a path that does not touch paid-order counts or the dispatch clock.</p>
+    <p>Connecting the two platforms is a small project with an outsized blast radius. If you want a second set of eyes on your stack before launch, tell us what your fulfillment setup looks like and we will tell you where we would test first.</p>
