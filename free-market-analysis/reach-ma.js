@@ -39,7 +39,8 @@
   doc.addEventListener('change', function (e) {
     if (!e.target.matches || !e.target.matches('form[data-reach-ma] input[name=prelaunch]')) return;
     var shop = e.target.form.elements.shop;
-    if (shop) { shop.disabled = e.target.checked; if (e.target.checked) shop.value = ''; }
+    if (shop) { shop.disabled = e.target.checked; shop.required = !e.target.checked; shop.removeAttribute('aria-invalid'); if (e.target.checked) shop.value = ''; }
+    e.target.form.classList.toggle('rsma-pre', e.target.checked);
   });
 
   doc.addEventListener('submit', function (e) {
@@ -49,8 +50,10 @@
     var f = function (n) { var el = form.elements[n]; return el ? String(el.value || '').trim() : ''; };
     var email = f('email'), shop = f('shop');
     var pre = form.elements.prelaunch && form.elements.prelaunch.checked;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return say(form, 'Please enter a valid email address.');
-    if (!shop && !pre) return say(form, 'Please enter your TikTok Shop name or link, or tick the box if you do not have a shop yet.');
+    var bad = function (n, msg) { var el = form.elements[n]; if (el) { el.setAttribute('aria-invalid', 'true'); el.focus(); } say(form, msg); };
+    ['email', 'shop'].forEach(function (n) { if (form.elements[n]) form.elements[n].removeAttribute('aria-invalid'); });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return bad('email', 'Please enter a valid work email address.');
+    if (!shop && !pre) return bad('shop', 'Please enter your TikTok Shop name or link, or tick the box if you do not have a shop yet.');
     var btn = form.querySelector('button[type=submit]');
     if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Sending...'; }
     var body = { email: email, name: f('name'), shop: shop, prelaunch: pre ? 'true' : 'false', website: f('website'),
@@ -87,6 +90,7 @@
     '.rsma-card h2 em{color:#C5F85F;font-style:italic}' +
     '.rsma-card p{font-size:14.5px;line-height:1.55;margin:0 0 6px}' +
     '.rsma-card label{display:block;color:#fff;font-size:13px;font-weight:600;margin:14px 0 6px}' +
+    '.rsma-card .req{color:#C5F85F;margin-left:2px}.rsma-card form.rsma-pre .req-shop{visibility:hidden}.rsma-card input[aria-invalid=true]{border-color:#FF6B6B}' +
     '.rsma-card input[type=email],.rsma-card input[type=text]{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:10px;border:1px solid #2A2A2E;background:#000;color:#fff;font:inherit;font-size:15px}' +
     '.rsma-card input:disabled{opacity:.45}' +
     '.rsma-card .rsma-chk{display:flex;gap:8px;align-items:center;font-weight:400;color:#B8B8BC;margin-top:10px}' +
@@ -104,10 +108,10 @@
     '<span class="rsma-kick">Free · Built for your brand</span>' +
     '<h2 id="rsma-title">See where your brand <em>stands on TikTok Shop.</em></h2>' +
     '<p>Tell us your TikTok Shop. We build a market analysis from live TikTok Shop data: your category, who is taking share, and the creators and videos driving sales. A strategist walks you through it.</p>' +
-    '<label for="rsma-email">Work email</label>' +
+    '<label for="rsma-email">Work email<span class="req" aria-hidden="true">*</span></label>' +
     '<input id="rsma-email" name="email" type="email" autocomplete="email" required>' +
-    '<label for="rsma-shop">Your TikTok Shop name or link</label>' +
-    '<input id="rsma-shop" name="shop" type="text" placeholder="Shop name, or https://www.tiktok.com/@yourbrand">' +
+    '<label for="rsma-shop">Your TikTok Shop name or link<span class="req req-shop" aria-hidden="true">*</span></label>' +
+    '<input id="rsma-shop" name="shop" type="text" required placeholder="Shop name, or https://www.tiktok.com/@yourbrand">' +
     '<label class="rsma-chk"><input type="checkbox" name="prelaunch" value="true"> I don\'t have a TikTok Shop yet</label>' +
     '<div class="hp" aria-hidden="true"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>' +
     '<button class="rsma-go" type="submit">Get my free analysis →</button>' +
